@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/power-up-arquetipo.iml" filepath="$PROJECT_DIR$/.idea/modules/power-up-arquetipo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/power-up-arquetipo.main.iml" filepath="$PROJECT_DIR$/.idea/modules/power-up-arquetipo.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/power-up-arquetipo.test.iml" filepath="$PROJECT_DIR$/.idea/modules/power-up-arquetipo.test.iml" />
     </modules>
   </component>
 </project>

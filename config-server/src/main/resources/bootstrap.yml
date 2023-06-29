@@ -1,0 +1,24 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sebasgiraldov/Talent-pool.git
+          username: ${USERGIT}
+          password: ${PASSWORDGIT}
+          default-label: main
+          search-paths: config-data
+  security:
+    user:
+      name: root
+      password: 12345
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+appDescription: "Pragma Challenge"
+appVersion: "1.0.0"
