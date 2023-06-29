@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8091
 
 spring:
   datasource:
@@ -16,5 +16,5 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-appDescription: "Pragma Powerup"
+appDescription: "Users"
 appVersion: "1.0.0"
