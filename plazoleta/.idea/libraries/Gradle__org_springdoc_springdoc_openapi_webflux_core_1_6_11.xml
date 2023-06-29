@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springdoc:springdoc-openapi-webflux-core:1.6.11" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.springdoc" artifactId="springdoc-openapi-webflux-core" version="1.6.11" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springdoc/springdoc-openapi-webflux-core/1.6.11/e7ca8f3d5c2639a4af3b210f457c8c06379427fa/springdoc-openapi-webflux-core-1.6.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springdoc/springdoc-openapi-webflux-core/1.6.11/1e79f08185b0301ae4bd67ba820aad71797cfc5d/springdoc-openapi-webflux-core-1.6.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
