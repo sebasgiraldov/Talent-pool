@@ -1,9 +1,12 @@
 package com.pragma.powerup.infrastructure.input.rest;
 
+import com.pragma.powerup.application.dto.request.ListPaginationRequest;
 import com.pragma.powerup.application.dto.request.RestaurantRequestDto;
+import com.pragma.powerup.application.dto.response.AllRestaurantResponseDto;
 import com.pragma.powerup.application.dto.response.ResponseDto;
 import com.pragma.powerup.application.dto.response.RestaurantResponseDto;
 import com.pragma.powerup.application.handler.IRestaurantHandler;
+import com.pragma.powerup.infrastructure.exception.NoDataFoundException;
 import com.pragma.powerup.infrastructure.exception.NotEnoughPrivileges;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -68,15 +71,48 @@ public class RestaurantRestController {
 
     @Operation(summary = "Get all restaurants")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "All restaurant returned",
+            @ApiResponse(responseCode = "200", description = "All restaurants listed",
                     content = @Content(mediaType = "application/json",
-                            array = @ArraySchema(schema = @Schema(implementation = RestaurantResponseDto.class)))),
-            @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
+                            array = @ArraySchema(schema = @Schema(implementation = AllRestaurantResponseDto.class)))),
+            @ApiResponse(responseCode = "404", description = "No data found",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
     })
+    @GetMapping("/allrestaurants")
+    public ResponseEntity<ResponseDto> getAllRestaurants(@Valid @RequestBody ListPaginationRequest listPaginationRequest,
+                                                         BindingResult bindingResult) {
+        ResponseDto responseDto = new ResponseDto();
+
+        if (bindingResult.hasErrors()) {
+            return ValidationErrors(bindingResult, responseDto);
+        }
+
+        try {
+            List<AllRestaurantResponseDto> allRestaurantResponseDto = restaurantHandler.getAllRestaurants(listPaginationRequest);
+            responseDto.setError(false);
+            responseDto.setMessage(null);
+            responseDto.setData(allRestaurantResponseDto);
+
+        } catch (NoDataFoundException ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("No se encontraro datos de restaurantes");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
+        } catch (Exception ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("Error interno del servidor");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
     @GetMapping("/")
-    public ResponseEntity<List<RestaurantResponseDto>> getAllRestaurants() {
+    public ResponseEntity<List<AllRestaurantResponseDto>> getAllRestaurants() {
         return ResponseEntity.ok(restaurantHandler.getAllRestaurants());
     }
+
 
 
     private ResponseEntity<ResponseDto> ValidationErrors(BindingResult bindingResult, ResponseDto responseDto) {

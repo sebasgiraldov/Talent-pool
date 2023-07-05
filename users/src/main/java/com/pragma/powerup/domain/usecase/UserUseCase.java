@@ -1,10 +1,12 @@
 package com.pragma.powerup.domain.usecase;
 
 import com.pragma.powerup.domain.api.IUserServicePort;
-import com.pragma.powerup.domain.model.User;
+import com.pragma.powerup.domain.model.UserModel;
 import com.pragma.powerup.domain.spi.IUserPersistencePort;
+import com.pragma.powerup.infrastructure.out.jpa.entity.UserEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserUseCase implements IUserServicePort {
 
@@ -14,33 +16,24 @@ public class UserUseCase implements IUserServicePort {
         this.userPersistencePort = userPersistencePort;
     }
 
+
     @Override
-    public void saveUser(User user) {
-        userPersistencePort.saveUser(user);
+    public UserModel saveUser(UserModel userModel) {
+        return userPersistencePort.saveUser(userModel);
     }
 
     @Override
-    public void saveOwner(User user) {
-        userPersistencePort.saveOwner(user);
+    public Optional<UserEntity> findUserByEmail(String email) {
+        return userPersistencePort.findUserByEmail(email);
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userPersistencePort.getAllUsers();
+    public UserModel findUserByEmailModel(String email) {
+        return userPersistencePort.findUserByEmailModel(email);
     }
 
     @Override
-    public User getUser(int document) {
-        return userPersistencePort.getUser(document);
-    }
-
-    @Override
-    public void updateUser(User user) {
-        userPersistencePort.updateUser(user);
-    }
-
-    @Override
-    public void deleteUser(int document) {
-        userPersistencePort.deleteUser(document);
+    public UserModel getById(Long userId) {
+        return userPersistencePort.getById(userId);
     }
 }

@@ -1,21 +1,16 @@
 package com.pragma.powerup.domain.spi;
 
-import com.pragma.powerup.domain.model.User;
+import com.pragma.powerup.domain.model.UserModel;
+import com.pragma.powerup.infrastructure.out.jpa.entity.UserEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IUserPersistencePort {
 
-    User saveUser(User user);
-
-    User saveOwner(User user);
-
-    List<User> getAllUsers();
-
-    User getUser(int document);
-
-    void updateUser(User user);
-
-    void deleteUser(int document);
+    UserModel saveUser(UserModel userModel);
+    Optional<UserEntity> findUserByEmail(String email);
+    UserModel findUserByEmailModel(String email);
+    UserModel getById(Long userId);
 
 }

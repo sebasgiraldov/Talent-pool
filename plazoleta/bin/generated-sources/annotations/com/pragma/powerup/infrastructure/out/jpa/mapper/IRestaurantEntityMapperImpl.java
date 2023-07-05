@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-06-29T11:09:47-0500",
+    date = "2023-07-04T16:23:26-0500",
     comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 3.35.0.v20230622-1425, environment: Java 17.0.7 (Eclipse Adoptium)"
 )
 @Component
@@ -25,10 +25,10 @@ public class IRestaurantEntityMapperImpl implements IRestaurantEntityMapper {
 
         restaurantEntity.setAddress( restaurantModel.getAddress() );
         restaurantEntity.setId( restaurantModel.getId() );
-        restaurantEntity.setIdOwner( restaurantModel.getIdOwner() );
         restaurantEntity.setName( restaurantModel.getName() );
         restaurantEntity.setNit( restaurantModel.getNit() );
-        restaurantEntity.setPhone( restaurantModel.getPhone() );
+        restaurantEntity.setOwnerId( restaurantModel.getOwnerId() );
+        restaurantEntity.setPhoneNumber( restaurantModel.getPhoneNumber() );
         restaurantEntity.setUrlLogo( restaurantModel.getUrlLogo() );
 
         return restaurantEntity;
@@ -44,10 +44,10 @@ public class IRestaurantEntityMapperImpl implements IRestaurantEntityMapper {
 
         restaurantModel.setAddress( restaurantEntity.getAddress() );
         restaurantModel.setId( restaurantEntity.getId() );
-        restaurantModel.setIdOwner( restaurantEntity.getIdOwner() );
         restaurantModel.setName( restaurantEntity.getName() );
         restaurantModel.setNit( restaurantEntity.getNit() );
-        restaurantModel.setPhone( restaurantEntity.getPhone() );
+        restaurantModel.setOwnerId( restaurantEntity.getOwnerId() );
+        restaurantModel.setPhoneNumber( restaurantEntity.getPhoneNumber() );
         restaurantModel.setUrlLogo( restaurantEntity.getUrlLogo() );
 
         return restaurantModel;

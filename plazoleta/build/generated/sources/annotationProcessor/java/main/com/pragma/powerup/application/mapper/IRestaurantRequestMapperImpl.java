@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-06-29T11:20:10-0500",
+    date = "2023-07-04T16:14:38-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.5.jar, environment: Java 17.0.7 (Oracle Corporation)"
 )
 @Component
@@ -22,11 +22,11 @@ public class IRestaurantRequestMapperImpl implements IRestaurantRequestMapper {
         RestaurantModel restaurantModel = new RestaurantModel();
 
         restaurantModel.setName( restaurantRequestDto.getName() );
-        restaurantModel.setNit( restaurantRequestDto.getNit() );
         restaurantModel.setAddress( restaurantRequestDto.getAddress() );
-        restaurantModel.setPhone( restaurantRequestDto.getPhone() );
+        restaurantModel.setOwnerId( restaurantRequestDto.getOwnerId() );
+        restaurantModel.setPhoneNumber( restaurantRequestDto.getPhoneNumber() );
         restaurantModel.setUrlLogo( restaurantRequestDto.getUrlLogo() );
-        restaurantModel.setIdOwner( restaurantRequestDto.getIdOwner() );
+        restaurantModel.setNit( restaurantRequestDto.getNit() );
 
         return restaurantModel;
     }

@@ -1,22 +1,26 @@
 package com.pragma.powerup.application.handler;
 
+import com.pragma.powerup.application.dto.request.AuthenticationRequestDto;
+import com.pragma.powerup.application.dto.request.RegisterRequestDto;
 import com.pragma.powerup.application.dto.request.UserRequestDto;
+import com.pragma.powerup.application.dto.response.JwtResponseDto;
 import com.pragma.powerup.application.dto.response.UserResponseDto;
 
 import java.util.List;
 
 public interface IUserHandler {
 
-    void saveUser(UserRequestDto userRequestDto);
+    UserResponseDto register(UserRequestDto userRequestDto);
 
-    void saveOwner(UserRequestDto userRequestDto);
+    JwtResponseDto login(AuthenticationRequestDto authenticationRequestDto);
 
-    List<UserResponseDto> getAllUsers();
+    UserResponseDto getById(Long userId);
 
-    UserResponseDto getUser(int document);
+    UserResponseDto getByEmail(String email);
 
-    void updateUser(UserRequestDto user);
+    UserResponseDto ownerRegister(RegisterRequestDto registerRequestDto);
 
-    void deleteUser(int document);
+    UserResponseDto employeeRegister(RegisterRequestDto registerRequestDto, Long restaurantId);
 
+    UserResponseDto clientRegister(RegisterRequestDto registerRequestDto);
 }

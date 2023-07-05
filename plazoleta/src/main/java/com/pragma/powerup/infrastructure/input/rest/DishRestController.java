@@ -42,7 +42,7 @@ public class DishRestController {
             @ApiResponse(responseCode = "404", description = "Category not found", content = @Content),
             @ApiResponse(responseCode = "404", description = "Restaurant not found", content = @Content)
     })
-    @RolesAllowed({"ROLE_PROPIETARIO"})
+    @RolesAllowed("ROLE_PROPIETARIO")
     @PostMapping("/")
     public ResponseEntity<ResponseDto> saveDish(@Valid @RequestBody DishRequestDto dishRequestDto,
                                                 BindingResult bindingResult) {

@@ -1,20 +1,31 @@
 package com.pragma.powerup.application.handler.impl;
 
+import com.pragma.powerup.application.dto.request.AuthenticationRequestDto;
+import com.pragma.powerup.application.dto.request.RegisterRequestDto;
 import com.pragma.powerup.application.dto.request.UserRequestDto;
+import com.pragma.powerup.application.dto.response.JwtResponseDto;
 import com.pragma.powerup.application.dto.response.UserResponseDto;
+import com.pragma.powerup.application.handler.IJwtHandler;
 import com.pragma.powerup.application.handler.IUserHandler;
+import com.pragma.powerup.application.mapper.IRolResponseMapper;
 import com.pragma.powerup.application.mapper.IUserRequestMapper;
 import com.pragma.powerup.application.mapper.IUserResponseMapper;
+import com.pragma.powerup.domain.api.IRolServicePort;
 import com.pragma.powerup.domain.api.IUserServicePort;
-import com.pragma.powerup.domain.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import com.pragma.powerup.domain.model.RolModel;
+import com.pragma.powerup.domain.model.UserModel;
+import com.pragma.powerup.infrastructure.exception.EmailAlreadyTaken;
+import com.pragma.powerup.infrastructure.out.jpa.entity.UserEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -23,44 +34,78 @@ public class UserHandler implements IUserHandler {
     private final IUserServicePort userServicePort;
     private final IUserRequestMapper userRequestMapper;
     private final IUserResponseMapper userResponseMapper;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final IJwtHandler jwtHandler;
+    private final AuthenticationManager authenticationManager;
+    private final IRolResponseMapper rolResponseMapper;
+    private final IRolServicePort rolServicePort;
+
+
     @Override
-    public void saveUser(UserRequestDto userRequestDto) {
-        User user = userRequestMapper.toUser(userRequestDto);
-        user.setRole("USER");
-        user.setPass(passwordEncoder.encode(user.getPass()));
-        userServicePort.saveUser(user);
+    public UserResponseDto register(UserRequestDto userRequestDto) {
+        if (userServicePort.findUserByEmail(userRequestDto.getEmail()).isPresent()) {
+            throw new EmailAlreadyTaken();
+        }
+
+        RolModel rolModel = rolServicePort.getRol(userRequestDto.getRolId());
+        UserModel userModel = userRequestMapper.toUser(userRequestDto);
+        userModel.setRolId(rolModel);
+
+        return userResponseMapper.toResponse(userServicePort.saveUser(userModel), rolResponseMapper.toResponse(rolModel));
     }
 
     @Override
-    public void saveOwner(UserRequestDto userRequestDto) {
-        User user = userRequestMapper.toUser(userRequestDto);
-        user.setRole("OWNER");
-        user.setPass(passwordEncoder.encode(user.getPass()));
-        userServicePort.saveOwner(user);
+    public JwtResponseDto login(AuthenticationRequestDto authenticationRequestDto) {
+        JwtResponseDto jwtResponseDto = new JwtResponseDto();
+
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(authenticationRequestDto.getEmail(),
+                        authenticationRequestDto.getPassword()));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        UserEntity userEntity = (UserEntity) authentication.getPrincipal();
+
+        var user = userServicePort.findUserByEmail(authenticationRequestDto.getEmail()).orElseThrow();
+        var jwtToken = jwtHandler.generateToken(user);
+
+        jwtResponseDto.setToken(jwtToken);
+        jwtResponseDto.setBearer(userEntity.getEmail());
+        jwtResponseDto.setUserName(userEntity.getName());
+        jwtResponseDto.setAuthorities(userEntity.getAuthorities());
+
+        return jwtResponseDto;
     }
 
     @Override
-    public List<UserResponseDto> getAllUsers() {
-        return userResponseMapper.toResponseList(userServicePort.getAllUsers());
+    public UserResponseDto getById(Long userId) {
+        UserModel userModel = userServicePort.getById(userId);
+        return userRequestMapper.toDto(userModel);
     }
 
     @Override
-    public UserResponseDto getUser(int document) {
-        User user = userServicePort.getUser(document);
-        return userResponseMapper.toResponse(user);
+    public UserResponseDto getByEmail(String email) {
+        UserModel userModel = userServicePort.findUserByEmailModel(email);
+        return userRequestMapper.toDto(userModel);
     }
 
     @Override
-    public void updateUser(UserRequestDto user) {
-        User newUser = userRequestMapper.toUser(user);
-        userServicePort.updateUser(newUser);
+    public UserResponseDto ownerRegister(RegisterRequestDto registerRequestDto) {
+        if (userServicePort.findUserByEmail(registerRequestDto.getEmail()).isPresent()) {
+            throw new EmailAlreadyTaken();
+        }
+        UserRequestDto userRequestDto = userRequestMapper.toUserRequestDto(registerRequestDto);
+        UserModel userModel = userRequestMapper.toUser(userRequestDto);
+        RolModel rolModel = rolServicePort.getRol(2L);
+        userModel.setRolId(rolModel);
+
+        return userResponseMapper.toResponse(userServicePort.saveUser(userModel), rolResponseMapper.toResponse(rolModel));
     }
 
     @Override
-    public void deleteUser(int document) {
-        User user = userServicePort.getUser(document);
-        userServicePort.deleteUser(document);
+    public UserResponseDto employeeRegister(RegisterRequestDto registerRequestDto, Long restaurantId) {
+        return null;
+    }
+
+    @Override
+    public UserResponseDto clientRegister(RegisterRequestDto registerRequestDto) {
+        return null;
     }
 }

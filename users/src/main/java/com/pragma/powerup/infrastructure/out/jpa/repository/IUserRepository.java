@@ -5,8 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface IUserRepository extends JpaRepository<UserEntity, Integer> {
+public interface IUserRepository extends JpaRepository<UserEntity, Long> {
 
-    Optional<UserEntity> findByDocument(int document);
-    void deleteByDocument(int document);
+    Optional<UserEntity> findByEmail(String email);
 }

@@ -8,10 +8,10 @@ import lombok.Setter;
 public class UserRequestDto {
     private Long id;
     private String name;
-    private String lastname;
-    private String document;
+    private String lastName;
+    private String idNumber;
     private String phone;
-    private String birthDate;
     private String email;
-    private String role;
+    private String password;
+    private RolRequestDto rolId;
 }

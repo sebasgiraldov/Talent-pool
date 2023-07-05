@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-06-29T11:20:10-0500",
+    date = "2023-07-04T16:14:38-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.5.jar, environment: Java 17.0.7 (Oracle Corporation)"
 )
 @Component
@@ -25,11 +25,11 @@ public class IRestaurantEntityMapperImpl implements IRestaurantEntityMapper {
 
         restaurantEntity.setId( restaurantModel.getId() );
         restaurantEntity.setName( restaurantModel.getName() );
-        restaurantEntity.setNit( restaurantModel.getNit() );
         restaurantEntity.setAddress( restaurantModel.getAddress() );
-        restaurantEntity.setPhone( restaurantModel.getPhone() );
+        restaurantEntity.setOwnerId( restaurantModel.getOwnerId() );
+        restaurantEntity.setPhoneNumber( restaurantModel.getPhoneNumber() );
         restaurantEntity.setUrlLogo( restaurantModel.getUrlLogo() );
-        restaurantEntity.setIdOwner( restaurantModel.getIdOwner() );
+        restaurantEntity.setNit( restaurantModel.getNit() );
 
         return restaurantEntity;
     }
@@ -44,11 +44,11 @@ public class IRestaurantEntityMapperImpl implements IRestaurantEntityMapper {
 
         restaurantModel.setId( restaurantEntity.getId() );
         restaurantModel.setName( restaurantEntity.getName() );
-        restaurantModel.setNit( restaurantEntity.getNit() );
         restaurantModel.setAddress( restaurantEntity.getAddress() );
-        restaurantModel.setPhone( restaurantEntity.getPhone() );
+        restaurantModel.setOwnerId( restaurantEntity.getOwnerId() );
+        restaurantModel.setPhoneNumber( restaurantEntity.getPhoneNumber() );
         restaurantModel.setUrlLogo( restaurantEntity.getUrlLogo() );
-        restaurantModel.setIdOwner( restaurantEntity.getIdOwner() );
+        restaurantModel.setNit( restaurantEntity.getNit() );
 
         return restaurantModel;
     }

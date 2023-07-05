@@ -18,11 +18,10 @@ public class RestaurantEntity {
     @Id
     @Column(name = "restaurant_id", nullable = false)
     private Long id;
-
     private String name;
-    private String nit;
     private String address;
-    private String phone;
+    private Long ownerId;
+    private String phoneNumber;
     private String urlLogo;
-    private Long idOwner;
+    private String nit;
 }

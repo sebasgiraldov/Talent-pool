@@ -8,12 +8,11 @@ import java.util.Date;
 @Getter
 @Setter
 public class UserResponseDto {
-
     private Long id;
     private String name;
-    private String lastname;
-    private int document;
+    private String lastName;
+    private String idNumber;
     private String phone;
-    private String birthDate;
     private String email;
+    private RolResponseDto rolId;
 }

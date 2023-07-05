@@ -1,7 +1,9 @@
 package com.pragma.powerup.application.handler.impl;
 
+import com.pragma.powerup.application.dto.request.ListPaginationRequest;
 import com.pragma.powerup.application.dto.request.RestaurantRequestDto;
 import com.pragma.powerup.application.dto.request.UserRequestDto;
+import com.pragma.powerup.application.dto.response.AllRestaurantResponseDto;
 import com.pragma.powerup.application.dto.response.RestaurantResponseDto;
 import com.pragma.powerup.application.handler.IRestaurantHandler;
 import com.pragma.powerup.application.mapper.IRestaurantRequestMapper;
@@ -22,18 +24,24 @@ public class RestaurantHandler implements IRestaurantHandler {
     private final IRestaurantServicePort restaurantServicePort;
     private final IRestaurantRequestMapper restaurantRequestMapper;
     private final IRestaurantResponseMapper restaurantResponseMapper;
-
-
+    private final IUserClient userClient;
 
     @Override
     public RestaurantResponseDto saveRestaurant(RestaurantRequestDto restaurantRequestDto) {
         RestaurantModel restaurantModel = restaurantRequestMapper.toRestaurant(restaurantRequestDto);
-
+        Object userRequestDto = userClient.getUserById(restaurantModel.getOwnerId()).getBody().getData();
+        restaurantModel.setOwnerId(restaurantRequestDto.getOwnerId());
         return restaurantResponseMapper.toResponse(restaurantServicePort.saveRestaurant(restaurantModel));
     }
 
     @Override
-    public List<RestaurantResponseDto> getAllRestaurants() {
+    public List<AllRestaurantResponseDto> getAllRestaurants(ListPaginationRequest listPaginationRequest) {
+        return restaurantResponseMapper.toResponseList(restaurantServicePort.getAllRestaurants(listPaginationRequest.getPageN(), listPaginationRequest.getSize()));
+    }
+
+
+    @Override
+    public List<AllRestaurantResponseDto> getAllRestaurants() {
         return restaurantResponseMapper.toResponseList(restaurantServicePort.getAllRestaurants());
     }
 }

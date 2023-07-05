@@ -1,6 +1,8 @@
 package com.pragma.powerup.infrastructure.out.jpa.mapper;
 
-import com.pragma.powerup.domain.model.User;
+import com.pragma.powerup.domain.model.RolModel;
+import com.pragma.powerup.domain.model.UserModel;
+import com.pragma.powerup.infrastructure.out.jpa.entity.RolEntity;
 import com.pragma.powerup.infrastructure.out.jpa.entity.UserEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,65 +11,91 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-06-29T11:38:20-0500",
+    date = "2023-06-30T14:56:16-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.5.jar, environment: Java 17.0.7 (Oracle Corporation)"
 )
 @Component
 public class IUserEntityMapperImpl implements IUserEntityMapper {
 
     @Override
-    public UserEntity toEntity(User user) {
-        if ( user == null ) {
+    public UserEntity toEntity(UserModel userModel) {
+        if ( userModel == null ) {
             return null;
         }
 
-        UserEntity userEntity = new UserEntity();
+        UserEntity.UserEntityBuilder userEntity = UserEntity.builder();
 
-        userEntity.setId( user.getId() );
-        userEntity.setName( user.getName() );
-        userEntity.setLastname( user.getLastname() );
-        userEntity.setDocument( user.getDocument() );
-        userEntity.setPhone( user.getPhone() );
-        userEntity.setBirthDate( user.getBirthDate() );
-        userEntity.setEmail( user.getEmail() );
-        userEntity.setPass( user.getPass() );
-        userEntity.setRole( user.getRole() );
+        userEntity.id( userModel.getId() );
+        userEntity.name( userModel.getName() );
+        userEntity.lastName( userModel.getLastName() );
+        userEntity.idNumber( userModel.getIdNumber() );
+        userEntity.phone( userModel.getPhone() );
+        userEntity.email( userModel.getEmail() );
+        userEntity.password( userModel.getPassword() );
+        userEntity.rolId( rolModelToRolEntity( userModel.getRolId() ) );
 
-        return userEntity;
+        return userEntity.build();
     }
 
     @Override
-    public User toUser(UserEntity userEntity) {
+    public UserModel toUserModel(UserEntity userEntity) {
         if ( userEntity == null ) {
             return null;
         }
 
-        User user = new User();
+        UserModel userModel = new UserModel();
 
-        user.setId( userEntity.getId() );
-        user.setName( userEntity.getName() );
-        user.setLastname( userEntity.getLastname() );
-        user.setDocument( userEntity.getDocument() );
-        user.setPhone( userEntity.getPhone() );
-        user.setBirthDate( userEntity.getBirthDate() );
-        user.setEmail( userEntity.getEmail() );
-        user.setPass( userEntity.getPass() );
-        user.setRole( userEntity.getRole() );
+        userModel.setId( userEntity.getId() );
+        userModel.setName( userEntity.getName() );
+        userModel.setLastName( userEntity.getLastName() );
+        userModel.setIdNumber( userEntity.getIdNumber() );
+        userModel.setPhone( userEntity.getPhone() );
+        userModel.setEmail( userEntity.getEmail() );
+        userModel.setPassword( userEntity.getPassword() );
+        userModel.setRolId( rolEntityToRolModel( userEntity.getRolId() ) );
 
-        return user;
+        return userModel;
     }
 
     @Override
-    public List<User> toUserList(List<UserEntity> userEntityList) {
+    public List<UserModel> toUserModelList(List<UserEntity> userEntityList) {
         if ( userEntityList == null ) {
             return null;
         }
 
-        List<User> list = new ArrayList<User>( userEntityList.size() );
+        List<UserModel> list = new ArrayList<UserModel>( userEntityList.size() );
         for ( UserEntity userEntity : userEntityList ) {
-            list.add( toUser( userEntity ) );
+            list.add( toUserModel( userEntity ) );
         }
 
         return list;
+    }
+
+    protected RolEntity rolModelToRolEntity(RolModel rolModel) {
+        if ( rolModel == null ) {
+            return null;
+        }
+
+        RolEntity rolEntity = new RolEntity();
+
+        rolEntity.setId( rolModel.getId() );
+        rolEntity.setName( rolModel.getName() );
+        rolEntity.setDescription( rolModel.getDescription() );
+
+        return rolEntity;
+    }
+
+    protected RolModel rolEntityToRolModel(RolEntity rolEntity) {
+        if ( rolEntity == null ) {
+            return null;
+        }
+
+        RolModel rolModel = new RolModel();
+
+        rolModel.setId( rolEntity.getId() );
+        rolModel.setName( rolEntity.getName() );
+        rolModel.setDescription( rolEntity.getDescription() );
+
+        return rolModel;
     }
 }

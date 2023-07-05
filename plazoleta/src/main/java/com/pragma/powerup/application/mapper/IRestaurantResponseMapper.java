@@ -1,6 +1,7 @@
 package com.pragma.powerup.application.mapper;
 
 import com.pragma.powerup.application.dto.request.RestaurantRequestDto;
+import com.pragma.powerup.application.dto.response.AllRestaurantResponseDto;
 import com.pragma.powerup.application.dto.response.RestaurantResponseDto;
 import com.pragma.powerup.domain.model.RestaurantModel;
 import org.mapstruct.Mapper;
@@ -13,8 +14,8 @@ import java.util.List;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface IRestaurantResponseMapper {
 
-    RestaurantModel toRestaurant(RestaurantRequestDto restaurantRequestDto);
     RestaurantResponseDto toResponse(RestaurantModel restaurantModel);
-    List<RestaurantResponseDto> toResponseList(List<RestaurantModel> restaurantModelList);
+
+    List<AllRestaurantResponseDto> toResponseList(List<RestaurantModel> restaurantModels);
 
 }

@@ -1,8 +1,18 @@
 package com.pragma.powerup.infrastructure.input.rest;
 
+import com.pragma.powerup.application.dto.request.AuthenticationRequestDto;
+import com.pragma.powerup.application.dto.request.RegisterRequestDto;
 import com.pragma.powerup.application.dto.request.UserRequestDto;
+import com.pragma.powerup.application.dto.response.JwtResponseDto;
+import com.pragma.powerup.application.dto.response.ResponseClientDto;
+import com.pragma.powerup.application.dto.response.ResponseDto;
 import com.pragma.powerup.application.dto.response.UserResponseDto;
 import com.pragma.powerup.application.handler.IUserHandler;
+import com.pragma.powerup.infrastructure.exception.EmailAlreadyTaken;
+import com.pragma.powerup.infrastructure.exception.NoDataFoundException;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -12,9 +22,16 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authorization.AuthorityAuthorizationDecision;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+
+import javax.annotation.security.RolesAllowed;
+import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("/api/v1/user")
@@ -23,68 +40,180 @@ public class UserRestController {
 
         private final IUserHandler userHandler;
 
-        @Operation(summary = "Add a new user")
+        @Operation(summary = "Register a new user")
         @ApiResponses(value = {
-                        @ApiResponse(responseCode = "201", description = "User created", content = @Content),
-                        @ApiResponse(responseCode = "409", description = "User already exists", content = @Content)
+                @ApiResponse(responseCode = "200", description = "User created",
+                        content = @Content(mediaType = "application/json",
+                                array = @ArraySchema(schema = @Schema(implementation = UserResponseDto.class)))),
+                @ApiResponse(responseCode = "400", description = "Email already taken",
+                        content = @Content(mediaType = "application/json",
+                                array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
         })
-        @PostMapping("/")
-        public ResponseEntity<Void> saveUser(@RequestBody UserRequestDto userRequestDto) {
-                userHandler.saveUser(userRequestDto);
-                return new ResponseEntity<>(HttpStatus.CREATED);
+        @PostMapping("/register")
+        public ResponseEntity<ResponseDto> register(@Valid @RequestBody UserRequestDto userRequestDto, BindingResult bindingResult) {
+                ResponseDto responseDto = new ResponseDto();
+
+                if (bindingResult.hasErrors()) {
+                        return ValidationErrors(bindingResult, responseDto);
+                }
+
+                try {
+                        UserResponseDto userResponseDto = userHandler.register(userRequestDto);
+                        responseDto.setError(false);
+                        responseDto.setMessage(null);
+                        responseDto.setData(userResponseDto);
+                } catch (EmailAlreadyTaken exception) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("El email ingresado ya está en uso");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
+                } catch (Exception exception) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("Error interno del servidor");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+                }
+
+                return new ResponseEntity<>(responseDto, HttpStatus.OK);
         }
 
-        @Operation(summary = "Add a new owner")
+
+        @Operation(summary = "Register a new owner")
         @ApiResponses(value = {
-                        @ApiResponse(responseCode = "201", description = "Owner created", content = @Content),
-                        @ApiResponse(responseCode = "409", description = "Owner already exists", content = @Content)
+                @ApiResponse(responseCode = "200", description = "Owner created",
+                        content = @Content(mediaType = "application/json",
+                                array = @ArraySchema(schema = @Schema(implementation = UserResponseDto.class)))),
+                @ApiResponse(responseCode = "400", description = "Email already taken",
+                        content = @Content(mediaType = "application/json",
+                                array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
         })
+        @RolesAllowed("ROLE_ADMINISTRADOR")
         @PostMapping("/owner")
-        public ResponseEntity<Void> saveOwner(@RequestBody UserRequestDto userRequestDto) {
-                userHandler.saveOwner(userRequestDto);
-                return new ResponseEntity<>(HttpStatus.CREATED);
+        public ResponseEntity<ResponseDto> registerOwner(@Valid @RequestBody RegisterRequestDto registerRequestDto, BindingResult bindingResult) {
+                ResponseDto responseDto = new ResponseDto();
+
+                if (bindingResult.hasErrors()) {
+                        return ValidationErrors(bindingResult, responseDto);
+                }
+
+                try {
+                        UserResponseDto userResponseDto = userHandler.ownerRegister(registerRequestDto);
+                        responseDto.setError(false);
+                        responseDto.setMessage(null);
+                        responseDto.setData(userResponseDto);
+                } catch (EmailAlreadyTaken exception) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("El email ingresado ya está en uso");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
+                } catch (Exception exception) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("Error interno del servidor");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+                }
+
+                return new ResponseEntity<>(responseDto, HttpStatus.OK);
         }
 
-        @Operation(summary = "Get all users")
-        @ApiResponses(value = {
-                        @ApiResponse(responseCode = "200", description = "All users returned", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UserResponseDto.class)))),
-                        @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
-        })
-        @GetMapping("/")
-        public ResponseEntity<List<UserResponseDto>> getAllUsers() {
-                return ResponseEntity.ok(userHandler.getAllUsers());
+        @PostMapping("/login")
+        public ResponseEntity<JwtResponseDto> login(@RequestBody AuthenticationRequestDto authenticationRequestDto) {
+                return ResponseEntity.ok(userHandler.login(authenticationRequestDto));
         }
 
-        @Operation(summary = "Get an user by document")
-        @ApiResponses(value = {
-                        @ApiResponse(responseCode = "200", description = "A users is returned", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UserResponseDto.class)))),
-                        @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
-        })
-        @GetMapping("/{document}")
-        public ResponseEntity<UserResponseDto> getUser(@PathVariable(name = "document") int document) {
-                return ResponseEntity.ok(userHandler.getUser(document));
+        @GetMapping("/{id}")
+        public ResponseEntity<ResponseClientDto> getUserById(@PathVariable Long id) {
+                ResponseClientDto responseDto = new ResponseClientDto();
+                try {
+                        userHandler.getById(id);
+                        responseDto.setError(false);
+                        responseDto.setMessage(null);
+                        responseDto.setData(userHandler.getById(id));
+                } catch (NoDataFoundException ex) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("Usuario No encontrado");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
+                } catch (Exception e) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("Error interno en el servidor");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+                }
+
+                return new ResponseEntity<>(responseDto, HttpStatus.OK);
         }
 
-        @Operation(summary = "Update a user")
-        @ApiResponses(value = {
-                        @ApiResponse(responseCode = "201", description = "Object updated", content = @Content),
-                        @ApiResponse(responseCode = "409", description = "Object no exists", content = @Content)
-        })
-        @PutMapping("/")
-        public ResponseEntity<Void> updateUser(@RequestBody UserRequestDto userRequestDto) {
-                userHandler.updateUser(userRequestDto);
-                return ResponseEntity.noContent().build();
+        @GetMapping("/email/{email}")
+        public ResponseEntity<ResponseClientDto> getUserByEmail(@PathVariable String email) {
+                ResponseClientDto responseDto = new ResponseClientDto();
+                try {
+                        userHandler.getByEmail(email);
+                        responseDto.setError(false);
+                        responseDto.setMessage(null);
+                        responseDto.setData(userHandler.getByEmail(email));
+                } catch (NoDataFoundException ex) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("Usuario No encontrado");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
+                } catch (Exception e) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("Error interno en el servidor");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+                }
+
+                return new ResponseEntity<>(responseDto, HttpStatus.OK);
         }
 
-        @Operation(summary = "Delete a user")
+        @Operation(summary = "Register a new client")
         @ApiResponses(value = {
-                        @ApiResponse(responseCode = "201", description = "Object deleted", content = @Content),
-                        @ApiResponse(responseCode = "409", description = "Object no exists", content = @Content)
+                @ApiResponse(responseCode = "201", description = "Client created",
+                        content = @Content(mediaType = "application/json",
+                                array = @ArraySchema(schema = @Schema(implementation = UserResponseDto.class)))),
+                @ApiResponse(responseCode = "400", description = "Email already taken",
+                        content = @Content(mediaType = "application/json",
+                                array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
         })
-        @DeleteMapping("/{document}")
-        public ResponseEntity<Void> deleteUser(@PathVariable Integer document) {
-                userHandler.deleteUser(document);
-                return ResponseEntity.noContent().build();
+        @PostMapping("/client")
+        public ResponseEntity<ResponseDto> clientRegister(@Valid @RequestBody RegisterRequestDto registerRequestDto, BindingResult bindingResult) {
+                ResponseDto responseDto = new ResponseDto();
+
+                if (bindingResult.hasErrors()) {
+                        return ValidationErrors(bindingResult, responseDto);
+                }
+
+                try {
+                        UserResponseDto userResponseDto = userHandler.clientRegister(registerRequestDto);
+                        responseDto.setError(false);
+                        responseDto.setMessage(null);
+                        responseDto.setData(userResponseDto);
+                } catch (EmailAlreadyTaken exception) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("El email ingresado ya está en uso");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
+                } catch (Exception exception) {
+                        responseDto.setError(true);
+                        responseDto.setMessage("Error interno del servidor");
+                        responseDto.setData(null);
+                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+                }
+
+                return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
         }
+
+        private ResponseEntity<ResponseDto> ValidationErrors(BindingResult bindingResult, ResponseDto responseDto) {
+                List<String> errors = bindingResult.getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList());
+
+                responseDto.setError(true);
+                responseDto.setMessage("Error en las validaciones");
+                responseDto.setData(errors);
+
+                return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
+        }
+
 
 }
+

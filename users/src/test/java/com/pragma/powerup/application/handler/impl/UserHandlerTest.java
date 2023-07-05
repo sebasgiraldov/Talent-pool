@@ -4,8 +4,7 @@ import com.pragma.powerup.application.dto.request.UserRequestDto;
 import com.pragma.powerup.application.mapper.IUserRequestMapper;
 import com.pragma.powerup.application.mapper.IUserResponseMapper;
 import com.pragma.powerup.domain.api.IUserServicePort;
-import com.pragma.powerup.domain.model.User;
-import org.junit.jupiter.api.Assertions;
+import com.pragma.powerup.domain.model.UserModel;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,11 +12,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static org.mockito.ArgumentMatchers.any;
-import java.util.Optional;
-
-
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 class UserHandlerTest {
@@ -41,9 +35,9 @@ class UserHandlerTest {
         userRequestDto.setPhone("573149022302");
         userRequestDto.setEmail("sebas@gmail.com");
         userRequestDto.setPass("hola123");
-        User user = new User(10L,"Sebastian", "G", 1193078576, "+573149022302", "1999-30-04", "sebas@gmail.com", "hola123", "OWNER");
+        UserModel user = new UserModel(10L,"Sebastian", "G", 1193078576, "+573149022302", "1999-30-04", "sebas@gmail.com", "hola123", "OWNER");
         Mockito.when(userRequestMapper.toUser(any())).thenReturn(user);
-        User user1 = userRequestMapper.toUser(userRequestDto);
+        UserModel user1 = userRequestMapper.toUser(userRequestDto);
         Mockito.verify(userServicePort).saveOwner((user1));
     }
 

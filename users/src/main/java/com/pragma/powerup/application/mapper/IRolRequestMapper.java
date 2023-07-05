@@ -1,2 +1,4 @@
-package com.pragma.powerup.application.mapper;public interface IRolRequestMapper {
+package com.pragma.powerup.application.mapper;
+
+public interface IRolRequestMapper {
 }
