@@ -108,5 +108,26 @@ public class DishHandler implements IDishHandler {
         return dishResponseMapper.toResponse(newDish, categoryResponseMapper.toResponse(categoryModel), restaurantResponseMapper.toResponse(restaurantModel));
     }
 
+    @Override
+    public DishResponseDto enableDish(Long dishId) {
+        String tokenHeader = FeignClientInterceptorImp.getBearerTokenHeader();
+        String[] splited = tokenHeader.split("\\s+");
+        String email = jwtHandler.extractUserName(splited[1]);
+        UserRequestDto userRequestDto = userClient.getUserByEmail(email).getBody().getData();
+
+        DishModel dish = dishServicePort.getDish(dishId);
+        RestaurantModel restaurantModel = restaurantServicePort.getRestaurant(dish.getRestaurantId().getId());
+        dish.setActive(!dish.getActive());
+
+        if (!userRequestDto.getId().equals(restaurantModel.getOwnerId())) {
+            throw new NotEnoughPrivileges();
+        }
+
+        dishServicePort.updateDish(dish);
+        CategoryModel categoryModel = categoryServicePort.getCategory(dish.getCategoryId().getId());
+
+        return dishResponseMapper.toResponse(dish, categoryResponseMapper.toResponse(categoryModel), restaurantResponseMapper.toResponse(restaurantModel));
+    }
+
 
 }

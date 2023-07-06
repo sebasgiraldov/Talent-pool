@@ -162,6 +162,41 @@ public class DishRestController {
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
 
+
+    @Operation(summary = "Enable or disable an existing dish")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Dish updated", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Dish not found", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Not enough privileges", content = @Content)
+    })
+    @RolesAllowed({"ROLE_PROPIETARIO"})
+    @PutMapping("/enable/{id}")
+    public ResponseEntity<ResponseDto> enableOrDisableDish(@PathVariable Long id) {
+
+        System.out.println("LLEGO A ROUTER"+id);
+        ResponseDto responseDto = new ResponseDto();
+
+        try {
+            DishResponseDto dishResponseDto = dishHandler.enableDish(id);
+            responseDto.setError(false);
+            responseDto.setMessage(null);
+            responseDto.setData(dishResponseDto);
+
+        } catch (NoDataFoundException ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("No se encontró el plato");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
+        } catch (NotEnoughPrivileges ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("No tienes suficientes privilegios para realizar esta accion");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.FORBIDDEN);
+        }
+
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
     private ResponseEntity<ResponseDto> ValidationErrors(BindingResult bindingResult, ResponseDto responseDto) {
         List<String> errors = bindingResult.getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList());
 

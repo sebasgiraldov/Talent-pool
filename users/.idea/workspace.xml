@@ -5,31 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cff2f0f-d4f6-4dca-baf2-91dcc649fd76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/dto/request/RestaurantEmployeeRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/dto/response/RestaurantEmployeeResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/handler/IRestaurantEmployeeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/handler/impl/RestaurantEmployeeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/mapper/IRestaurantEmployeeRequestMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/mapper/IRestaurantEmployeeResponseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/domain/api/IRestaurantEmployeeServicePort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/domain/model/RestaurantEmployeeModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/domain/spi/IRestaurantEmployeePersistencePort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/domain/usecase/RestaurantEmployeeUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/infrastructure/input/rest/RestaurantEmployeeRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/RestaurantEmployeeJpaAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/RestaurantEmployeeEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/infrastructure/out/jpa/mapper/IRestaurantEmployeeEntityMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/infrastructure/out/jpa/repository/IRestaurantEmployeeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/application/dto/request/RestaurantEmployeeRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/input/rest/AuthenticationRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/input/rest/Plazoleta/IPlazoletaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../discovery-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
@@ -41,31 +21,45 @@
       <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/3/2/3211ad27f3c94b5f667b25b7a74e0045ea7c4d98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/2/0/20c332790eefa59cf2c192486ee863047e448d7f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/4/5/45bc492939feffea5f85f66dcf6663f4a1846db3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/7/b/7b6c9fcc369606a13f68211d065c6f4a98a8b0cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/9/3/9361d77963da4538c0f70c0541fd47ba25ff7ab3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/9/a/9ae5466622699597cd41e7e723b0ca8e5908ea5c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/9/f/9fe39810584bbad7570a59b946332596651fa932" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/a/0/a053e058d0b5782efb267b7ddd6bf7d1f2295c56" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/f/f/ff3c9e7e9130017da07c93c933654405631f3537" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/3/2/3211ad27f3c94b5f667b25b7a74e0045ea7c4d98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/2/0/20c332790eefa59cf2c192486ee863047e448d7f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/4/5/45bc492939feffea5f85f66dcf6663f4a1846db3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/7/b/7b6c9fcc369606a13f68211d065c6f4a98a8b0cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/9/3/9361d77963da4538c0f70c0541fd47ba25ff7ab3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/9/a/9ae5466622699597cd41e7e723b0ca8e5908ea5c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/9/f/9fe39810584bbad7570a59b946332596651fa932" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/a/0/a053e058d0b5782efb267b7ddd6bf7d1f2295c56" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/f/f/ff3c9e7e9130017da07c93c933654405631f3537" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/bin/main/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/bin/main/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/build/classes/java/main/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/classes/java/main/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/bin/generated-sources/annotations/com/pragma/powerup/application/mapper/IRestaurantEmployeeRequestMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/bin/generated-sources/annotations/com/pragma/powerup/application/mapper/IRestaurantEmployeeRequestMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/bin/generated-sources/annotations/com/pragma/powerup/application/mapper/IRestaurantEmployeeResponseMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/bin/generated-sources/annotations/com/pragma/powerup/application/mapper/IRestaurantEmployeeResponseMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/bin/generated-sources/annotations/com/pragma/powerup/infrastructure/out/jpa/mapper/IRestaurantEmployeeEntityMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/bin/generated-sources/annotations/com/pragma/powerup/infrastructure/out/jpa/mapper/IRestaurantEmployeeEntityMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/bin/main/com/pragma/powerup/application/handler/IDishHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/bin/main/com/pragma/powerup/application/handler/IDishHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/bin/main/com/pragma/powerup/application/handler/impl/DishHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/bin/main/com/pragma/powerup/application/handler/impl/DishHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/bin/main/com/pragma/powerup/infrastructure/input/rest/DishRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/bin/main/com/pragma/powerup/infrastructure/input/rest/DishRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/build/classes/java/main/com/pragma/powerup/application/handler/IDishHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/classes/java/main/com/pragma/powerup/application/handler/IDishHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/build/classes/java/main/com/pragma/powerup/application/handler/impl/DishHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/classes/java/main/com/pragma/powerup/application/handler/impl/DishHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/build/classes/java/main/com/pragma/powerup/infrastructure/input/rest/DishRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/classes/java/main/com/pragma/powerup/infrastructure/input/rest/DishRestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plazoleta/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/handler/IDishHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/handler/IDishHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/handler/impl/DishHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/application/handler/impl/DishHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/infrastructure/input/rest/DishRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/src/main/java/com/pragma/powerup/infrastructure/input/rest/DishRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/pragma/powerup/application/handler/impl/UserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/pragma/powerup/application/handler/impl/UserHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/pragma/powerup/infrastructure/input/rest/UserRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/pragma/powerup/infrastructure/input/rest/UserRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/application/handler/impl/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/application/handler/impl/UserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/input/rest/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/input/rest/UserRestController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

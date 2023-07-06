@@ -17,6 +17,8 @@ public interface IDishHandler {
 
     DishResponseDto updateDish(DishUpdateRequestDto dishUpdateRequestDto);
 
+    DishResponseDto enableDish(Long dishId);
+
     List<DishResponseDto> getAllDishesByRestaurant(ListPaginationRequest listPaginationRequest, Long restaurantId);
 
 }
