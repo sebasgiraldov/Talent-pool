@@ -78,43 +78,6 @@ public class UserRestController {
         }
 
 
-        @Operation(summary = "Register a new owner")
-        @ApiResponses(value = {
-                @ApiResponse(responseCode = "200", description = "Owner created",
-                        content = @Content(mediaType = "application/json",
-                                array = @ArraySchema(schema = @Schema(implementation = UserResponseDto.class)))),
-                @ApiResponse(responseCode = "400", description = "Email already taken",
-                        content = @Content(mediaType = "application/json",
-                                array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
-        })
-        @RolesAllowed("ROLE_ADMINISTRADOR")
-        @PostMapping("/owner")
-        public ResponseEntity<ResponseDto> registerOwner(@Valid @RequestBody RegisterRequestDto registerRequestDto, BindingResult bindingResult) {
-                ResponseDto responseDto = new ResponseDto();
-
-                if (bindingResult.hasErrors()) {
-                        return ValidationErrors(bindingResult, responseDto);
-                }
-
-                try {
-                        UserResponseDto userResponseDto = userHandler.ownerRegister(registerRequestDto);
-                        responseDto.setError(false);
-                        responseDto.setMessage(null);
-                        responseDto.setData(userResponseDto);
-                } catch (EmailAlreadyTaken exception) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("El email ingresado ya está en uso");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
-                } catch (Exception exception) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("Error interno del servidor");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-
-                return new ResponseEntity<>(responseDto, HttpStatus.OK);
-        }
 
         @PostMapping("/login")
         public ResponseEntity<JwtResponseDto> login(@RequestBody AuthenticationRequestDto authenticationRequestDto) {

@@ -2,6 +2,7 @@ package com.pragma.powerup.application.handler.impl;
 
 import com.pragma.powerup.application.dto.request.AuthenticationRequestDto;
 import com.pragma.powerup.application.dto.request.RegisterRequestDto;
+import com.pragma.powerup.application.dto.request.RestaurantEmployeeRequestDto;
 import com.pragma.powerup.application.dto.request.UserRequestDto;
 import com.pragma.powerup.application.dto.response.JwtResponseDto;
 import com.pragma.powerup.application.dto.response.UserResponseDto;
@@ -14,7 +15,10 @@ import com.pragma.powerup.domain.api.IRolServicePort;
 import com.pragma.powerup.domain.api.IUserServicePort;
 import com.pragma.powerup.domain.model.RolModel;
 import com.pragma.powerup.domain.model.UserModel;
+import com.pragma.powerup.infrastructure.configuration.FeignClientInterceptorImp;
 import com.pragma.powerup.infrastructure.exception.EmailAlreadyTaken;
+import com.pragma.powerup.infrastructure.exception.NoDataFoundException;
+import com.pragma.powerup.infrastructure.input.rest.Plazoleta.IPlazoletaService;
 import com.pragma.powerup.infrastructure.out.jpa.entity.UserEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 
@@ -25,6 +29,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -38,6 +43,7 @@ public class UserHandler implements IUserHandler {
     private final AuthenticationManager authenticationManager;
     private final IRolResponseMapper rolResponseMapper;
     private final IRolServicePort rolServicePort;
+    private final IPlazoletaService plazoletaService;
 
 
     @Override
@@ -101,7 +107,37 @@ public class UserHandler implements IUserHandler {
 
     @Override
     public UserResponseDto employeeRegister(RegisterRequestDto registerRequestDto, Long restaurantId) {
-        return null;
+        if (userServicePort.findUserByEmail(registerRequestDto.getEmail()).isPresent()) {
+            throw new EmailAlreadyTaken();
+        }
+
+        String tokenHeader = FeignClientInterceptorImp.getBearerTokenHeader();
+        String[] splited = tokenHeader.split("\\s+");
+        String email = jwtHandler.extractUserName(splited[1]);
+
+        Optional<UserEntity> userEntityOptional = userServicePort.findUserByEmail(email);
+
+        if (userEntityOptional.isEmpty()) {
+            throw new NoDataFoundException();
+        }
+
+        UserEntity owner = userEntityOptional.get();
+
+        UserRequestDto userRequestDto = userRequestMapper.toUserRequestDto(registerRequestDto);
+
+        UserModel userModel = userRequestMapper.toUser(userRequestDto);
+        RolModel rolModel = rolServicePort.getRol(3L);
+        userModel.setRolId(rolModel);
+
+        UserModel userModelResponse = userServicePort.saveUser(userModel);
+
+        RestaurantEmployeeRequestDto restaurantEmployeeRequestDto = new RestaurantEmployeeRequestDto();
+        restaurantEmployeeRequestDto.setEmployeeId(userModelResponse.getId());
+        restaurantEmployeeRequestDto.setRestaurantId(restaurantId);
+        restaurantEmployeeRequestDto.setOwnerId(owner.getId());
+        plazoletaService.saveRestaurantEmployee(restaurantEmployeeRequestDto);
+
+        return userResponseMapper.toResponse(userModelResponse, rolResponseMapper.toResponse(rolModel));
     }
 
     @Override

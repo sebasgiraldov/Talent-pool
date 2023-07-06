@@ -25,8 +25,6 @@ y
 Isrc/main/java/com/pragma/powerup/application/handler/impl/JwtHandler.java,f\0\f04f2c97cf8333f88a689aa1a630a0cdf2eeb3f7
 Œ
 \src/main/java/com/pragma/powerup/infrastructure/configuration/FeignClientInterceptorImp.java,2\b\2b7b155555f3e26044359bb054bca846dacb17f3
-ˆ
-Xsrc/main/java/com/pragma/powerup/infrastructure/configuration/SecurityConfiguration.java,3\9\39402b79cc4b8bb90e5ed1830dfbb595fc103e1e
 ‡
 Wsrc/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/CategoryJpaAdapter.java,c\6\c6e5c4888b4d023d7dcff90eca53f7ff6f906639
 ~
@@ -131,8 +129,6 @@ Nsrc/main/java/com/pragma/powerup/application/handler/impl/CategoryHandler.java
 Vsrc/main/java/com/pragma/powerup/infrastructure/input/rest/CategoryRestController.java,d\e\deee33cd43650276beab27986407bd39b02dbb42
 |
 Lsrc/main/java/com/pragma/powerup/application/dto/request/UserRequestDto.java,6\c\6cca9dfed4927b679140845fb93f96646f6e2b2c
-‚
-Rsrc/main/java/com/pragma/powerup/infrastructure/input/rest/client/IUserClient.java,3\2\3211ad27f3c94b5f667b25b7a74e0045ea7c4d98
 Š
 Zsrc/main/java/com/pragma/powerup/infrastructure/configuration/JwtAuthenticationFilter.java,9\9\998b782a20a2f5ef498f7a32c66587f545430a6c
 z
