@@ -6,8 +6,6 @@ import com.pragma.powerup.application.dto.request.UserRequestDto;
 import com.pragma.powerup.application.dto.response.JwtResponseDto;
 import com.pragma.powerup.application.dto.response.UserResponseDto;
 
-import java.util.List;
-
 public interface IUserHandler {
 
     UserResponseDto register(UserRequestDto userRequestDto);

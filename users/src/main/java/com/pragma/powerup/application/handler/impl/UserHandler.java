@@ -142,6 +142,16 @@ public class UserHandler implements IUserHandler {
 
     @Override
     public UserResponseDto clientRegister(RegisterRequestDto registerRequestDto) {
-        return null;
+
+        if(userServicePort.findUserByEmail(registerRequestDto.getEmail()).isPresent()){
+            throw  new EmailAlreadyTaken();
+        }
+
+        UserRequestDto userRequestDto = userRequestMapper.toUserRequestDto(registerRequestDto);
+        UserModel userModel = userRequestMapper.toUser(userRequestDto);
+        RolModel rolModel = rolServicePort.getRol(4L);
+        userModel.setRolId(rolModel);
+
+        return userResponseMapper.toResponse(userServicePort.saveUser(userModel), rolResponseMapper.toResponse(rolModel));
     }
 }
