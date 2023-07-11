@@ -13,10 +13,7 @@ import com.pragma.powerup.application.mapper.IOrderRequestMapper;
 import com.pragma.powerup.application.mapper.IOrderResponseMapper;
 import com.pragma.powerup.application.mapper.IUserRequestMapper;
 import com.pragma.powerup.domain.api.*;
-import com.pragma.powerup.domain.model.OrderModel;
-import com.pragma.powerup.domain.model.OrderState;
-import com.pragma.powerup.domain.model.RestaurantEmployeeModel;
-import com.pragma.powerup.domain.model.RestaurantModel;
+import com.pragma.powerup.domain.model.*;
 import com.pragma.powerup.infrastructure.configuration.FeignClientInterceptorImp;
 import com.pragma.powerup.infrastructure.exception.DishNotFoundInRestaurantException;
 import com.pragma.powerup.infrastructure.input.rest.client.IUserClient;
@@ -102,6 +99,21 @@ public class OrderHandler implements IOrderHandler {
 
     @Override
     public OrderResponseDto asignAnOrder(Long orderId) {
-        return null;
+        OrderModel orderModel = orderServicePort.getOrder(orderId);
+
+        String tokenHeader = FeignClientInterceptorImp.getBearerTokenHeader();
+        String splited[] = tokenHeader.split("\\s+");
+        String email = jwtHandler.extractUserName(splited[1]);
+        UserRequestDto userRequestDto = userClient.getUserByEmail(email).getBody().getData();
+
+        orderModel.setChefId(userRequestMapper.toUser(userRequestDto));
+        orderModel.setOrderState(OrderState.EN_PREPARACION);
+
+        OrderModel orderModelResponse = orderServicePort.createOrder(orderModel);
+        List<OrderDishModel> orderDishModelList = orderDishServicePort.getAllOrderDishByOrder(orderId);
+
+        List<OrderDishResponseDto> orderDishResponseDtoList = orderDishModelList.stream().map(orderDishResponseMapper::toResponse).collect(Collectors.toList());
+
+        return orderResponseMapper.toResponse(orderModelResponse, orderDishResponseDtoList);
     }
 }
