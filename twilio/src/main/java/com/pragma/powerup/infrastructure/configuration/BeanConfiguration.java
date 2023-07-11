@@ -1,0 +1,62 @@
+package com.pragma.powerup.infrastructure.configuration;
+
+import com.pragma.powerup.domain.api.IUserServicePort;
+import com.pragma.powerup.domain.spi.IUserPersistencePort;
+import com.pragma.powerup.domain.usecase.UserUseCase;
+import com.pragma.powerup.infrastructure.input.rest.client.IUserClient;
+import com.pragma.powerup.infrastructure.out.jpa.adapter.UserJpaAdapter;
+import com.pragma.powerup.infrastructure.out.jpa.mapper.IUserEntityMapper;
+import com.pragma.powerup.infrastructure.out.jpa.repository.IUserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Configuration
+@RequiredArgsConstructor
+public class BeanConfiguration {
+    private final IUserRepository userRepository;
+    private final IUserEntityMapper userEntityMapper;
+    private final IUserClient userClientRepository;
+
+    @Bean
+    public IUserPersistencePort userPersistencePort(){
+        return new UserJpaAdapter(userRepository, userEntityMapper);
+    }
+
+    @Bean
+    public IUserServicePort userServicePort() {
+        return new UserUseCase(userPersistencePort());
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return username -> (UserDetails) userClientRepository.getUserByEmail(username);
+    }
+
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService());
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
+}

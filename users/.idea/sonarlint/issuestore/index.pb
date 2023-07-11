@@ -75,17 +75,7 @@ u
 Esrc/main/java/com/pragma/powerup/application/handler/IJwtHandler.java,8\a\8ac8721e5038b19826eec1106eb00ba32c7f28ff
 ~
 Nsrc/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/UserEntity.java,8\b\8b93abb15bdd9d592ae02ed56208b743fc0ca833
-v
-Fsrc/main/java/com/pragma/powerup/application/handler/IUserHandler.java,c\1\c123176d79d23d494bcf9a7a5b6a053ce112d2ab
 Š
 Zsrc/main/java/com/pragma/powerup/application/dto/request/RestaurantEmployeeRequestDto.java,b\6\b607b31ba201bf8224ffefc7b64c13aac0313515
-Œ
-\src/main/java/com/pragma/powerup/infrastructure/input/rest/AuthenticationRestController.java,f\3\f363dd695338c8a9e5d352ad366babeb765925f5
-‹
-[src/main/java/com/pragma/powerup/infrastructure/input/rest/Plazoleta/IPlazoletaService.java,c\3\c352834a03e95ef2976994799442218f8448df64
-z
-Jsrc/main/java/com/pragma/powerup/application/handler/impl/UserHandler.java,a\8\a8ae14cc513cf4487961365679868ae8d6c93f2e
-‚
-Rsrc/main/java/com/pragma/powerup/infrastructure/input/rest/UserRestController.java,7\b\7bc1312b9289ecf16cce6d7f8f6fdabb4dae2960
 €
 Psrc/main/java/com/pragma/powerup/application/dto/request/RegisterRequestDto.java,5\0\501e3f08d8d08f5b175eef08fc719865876034bb

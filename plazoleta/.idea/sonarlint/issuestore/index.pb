@@ -141,8 +141,6 @@ p
 @src/main/java/com/pragma/powerup/domain/usecase/DishUseCase.java,2\9\290fb41e9205c1c3a2c489a805348da309239c6b
 ‚
 Rsrc/main/java/com/pragma/powerup/infrastructure/input/rest/DishRestController.java,5\3\53921ab52d1da17709a4f6657be6ded6b9d13d07
-z
-Jsrc/main/java/com/pragma/powerup/application/handler/impl/DishHandler.java,7\b\7b6c9fcc369606a13f68211d065c6f4a98a8b0cc
 ‚
 Rsrc/main/java/com/pragma/powerup/application/dto/request/DishUpdateRequestDto.java,9\f\9fe39810584bbad7570a59b946332596651fa932
 z
