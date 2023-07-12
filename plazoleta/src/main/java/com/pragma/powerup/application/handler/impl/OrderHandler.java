@@ -2,10 +2,9 @@ package com.pragma.powerup.application.handler.impl;
 
 import com.pragma.powerup.application.dto.request.OrderDishRequestDto;
 import com.pragma.powerup.application.dto.request.OrderRequestDto;
+import com.pragma.powerup.application.dto.request.TwilioRequestDto;
 import com.pragma.powerup.application.dto.request.UserRequestDto;
-import com.pragma.powerup.application.dto.response.OrderDishResponseDto;
-import com.pragma.powerup.application.dto.response.OrderResponseDto;
-import com.pragma.powerup.application.dto.response.OrderStateResponseDto;
+import com.pragma.powerup.application.dto.response.*;
 import com.pragma.powerup.application.handler.IOrderDishHandler;
 import com.pragma.powerup.application.handler.IOrderHandler;
 import com.pragma.powerup.application.mapper.IOrderDishResponseMapper;
@@ -16,8 +15,10 @@ import com.pragma.powerup.domain.api.*;
 import com.pragma.powerup.domain.model.*;
 import com.pragma.powerup.infrastructure.configuration.FeignClientInterceptorImp;
 import com.pragma.powerup.infrastructure.exception.DishNotFoundInRestaurantException;
+import com.pragma.powerup.infrastructure.exception.NoDataFoundException;
 import com.pragma.powerup.infrastructure.exception.OrderIsNotReadyException;
 import com.pragma.powerup.infrastructure.exception.WrongPingException;
+import com.pragma.powerup.infrastructure.input.rest.client.ITwilioClient;
 import com.pragma.powerup.infrastructure.input.rest.client.IUserClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,7 @@ public class OrderHandler implements IOrderHandler {
     private final IUserClient userClient;
     private final IUserRequestMapper userRequestMapper;
     private final IDishServicePort dishServicePort;
+    private final ITwilioClient twilioClient;
     @Override
     public OrderResponseDto createOrder(OrderRequestDto orderRequestDto) {
         RestaurantModel restaurantModel = restaurantServicePort.getRestaurant(orderRequestDto.getRestaurantId());
@@ -111,12 +113,24 @@ public class OrderHandler implements IOrderHandler {
         orderModel.setChefId(userRequestMapper.toUser(userRequestDto));
         orderModel.setOrderState(OrderState.EN_PREPARACION);
 
-        OrderModel orderModelResponse = orderServicePort.createOrder(orderModel);
-        List<OrderDishModel> orderDishModelList = orderDishServicePort.getAllOrderDishByOrder(orderId);
+        OrderResponseDto orderResponseDto = updateOrder(orderId, orderModel);
+        return orderResponseDto;
+    }
 
-        List<OrderDishResponseDto> orderDishResponseDtoList = orderDishModelList.stream().map(orderDishResponseMapper::toResponse).collect(Collectors.toList());
-
-        return orderResponseMapper.toResponse(orderModelResponse, orderDishResponseDtoList);
+    @Override
+    public OrderResponseDto notifyOrder(Long orderId) {
+        OrderModel orderModel = orderServicePort.getOrder(orderId);
+        orderModel.setOrderState(OrderState.LISTO);
+        TwilioRequestDto twilioRequestDto = new TwilioRequestDto();
+        twilioRequestDto.setMessage(String.valueOf(orderModel.getId()*1110));
+        UserRequestDto userRequestDto = userClient.getUserById(orderModel.getClientId().getId()).getBody().getData();
+        twilioRequestDto.setNumber(userRequestDto.getPhone());
+        ResponseDto responseDto = twilioClient.sendMessage(twilioRequestDto).getBody();
+        if(responseDto.isError()){
+            throw new NoDataFoundException();
+        }
+        OrderResponseDto orderResponseDto = updateOrder(orderId, orderModel);
+        return orderResponseDto;
     }
 
     @Override
@@ -132,6 +146,11 @@ public class OrderHandler implements IOrderHandler {
             throw new OrderIsNotReadyException();
         }
 
+        OrderResponseDto orderResponseDto = updateOrder(orderId, orderModel);
+        return orderResponseDto;
+    }
+
+    public OrderResponseDto updateOrder(Long orderId, OrderModel orderModel){
         OrderModel orderModelResponse = orderServicePort.createOrder(orderModel);
         List<OrderDishModel> orderDishModelList = orderDishServicePort.getAllOrderDishByOrder(orderId);
 

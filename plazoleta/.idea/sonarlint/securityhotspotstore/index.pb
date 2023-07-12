@@ -9,8 +9,6 @@ Rsrc/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/CategoryEntity.j
 Xsrc/main/java/com/pragma/powerup/infrastructure/exception/CategoryNotFoundException.java,6\b\6bbe1a6f27ae0bebe85ce96fdb47af601e7e2ddd
 „
 Tsrc/main/java/com/pragma/powerup/infrastructure/exception/DishNotFoundException.java,5\1\510764f5b2c2d849db216c18447543f08b7d8e8d
-€
-Psrc/main/java/com/pragma/powerup/application/dto/response/ResponseClientDto.java,0\6\06f3dc4d10226719da64a9b49f2ed5df3dc2d950
 ‡
 Wsrc/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/CategoryJpaAdapter.java,c\6\c6e5c4888b4d023d7dcff90eca53f7ff6f906639
 …
@@ -61,8 +59,6 @@ Gsrc/main/java/com/pragma/powerup/domain/api/IRestaurantServicePort.java,b\c\bc
 Qsrc/main/java/com/pragma/powerup/application/mapper/IRestaurantRequestMapper.java,2\8\28e8839960966c356d9c23e9db8d2c449f00bf85
 ‚
 Rsrc/main/java/com/pragma/powerup/application/mapper/IRestaurantResponseMapper.java,6\a\6a9e43b0c6b8fa29e2308b5b1d5557a3acc9c735
-z
-Jsrc/main/java/com/pragma/powerup/application/dto/response/ResponseDto.java,c\2\c26fed13c40b3878a8b4dcf010190361af053697
 u
 Esrc/main/java/com/pragma/powerup/domain/spi/IDishPersistencePort.java,e\e\eea2ff658af90eca32566f7ff050ef8c61226618
 |

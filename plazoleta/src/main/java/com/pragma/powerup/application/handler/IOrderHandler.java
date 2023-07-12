@@ -17,5 +17,7 @@ public interface IOrderHandler {
 
     OrderResponseDto asignAnOrder(Long orderId);
 
+    OrderResponseDto notifyOrder(Long orderId);
+
     OrderResponseDto deliverOrder(Long orderId, Long pin);
 }

@@ -149,6 +149,41 @@ public class OrderRestController {
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
 
+
+
+    @Operation(summary = "Notify order")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Order Ready",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = OrderResponseDto.class)))),
+    })
+    @RolesAllowed({"ROLE_EMPLEADO"})
+    @PutMapping("/notify/{orderId}")
+    public ResponseEntity<ResponseDto> notifyOrder(@PathVariable Long orderId) {
+        ResponseDto responseDto = new ResponseDto();
+
+        try {
+            OrderResponseDto orderResponseDto = orderHandler.notifyOrder(orderId);
+            responseDto.setError(false);
+            responseDto.setMessage(null);
+            responseDto.setData(orderResponseDto);
+        }catch (NoDataFoundException ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("Tuvimos un problema para enviar el mensaje");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
+        } catch (Exception ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("Error interno del servidor");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
+
+
     @Operation(summary = "Deliver order")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Order delivered",

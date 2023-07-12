@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffd39740-ea9f-4dde-bf6e-adc3d7c3f3b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/application/dto/request/DeliverOrderRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/exception/OrderIsNotReadyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/exception/WrongPingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/application/dto/request/TwilioRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/input/rest/client/ITwilioClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
@@ -26,20 +25,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/f/4f8d9ac844323839d8d23438c4fda8544b23ac0d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/53921ab52d1da17709a4f6657be6ded6b9d13d07" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9fe39810584bbad7570a59b946332596651fa932" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a586d5aac060aeba2587c7ce23abaaacfa88fbae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/06f3dc4d10226719da64a9b49f2ed5df3dc2d950" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/2/c26fed13c40b3878a8b4dcf010190361af053697" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/f/4f8d9ac844323839d8d23438c4fda8544b23ac0d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/3/53921ab52d1da17709a4f6657be6ded6b9d13d07" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/f/9fe39810584bbad7570a59b946332596651fa932" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/5/a586d5aac060aeba2587c7ce23abaaacfa88fbae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/6/06f3dc4d10226719da64a9b49f2ed5df3dc2d950" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/2/c26fed13c40b3878a8b4dcf010190361af053697" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/com/pragma/powerup/application/handler/IOrderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/pragma/powerup/application/handler/IOrderHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/com/pragma/powerup/application/handler/impl/OrderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/pragma/powerup/application/handler/impl/OrderHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/pragma/powerup/infrastructure/configuration/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/pragma/powerup/infrastructure/configuration/SecurityConfiguration.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/com/pragma/powerup/infrastructure/input/rest/OrderRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/pragma/powerup/infrastructure/input/rest/OrderRestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/pragma/powerup/application/handler/IOrderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/pragma/powerup/application/handler/IOrderHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/pragma/powerup/application/handler/impl/OrderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/pragma/powerup/application/handler/impl/OrderHandler.class" afterDir="false" />
@@ -47,6 +42,7 @@
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/application/handler/IOrderHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/application/handler/IOrderHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/application/handler/impl/OrderHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/application/handler/impl/OrderHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/configuration/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/input/rest/OrderRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pragma/powerup/infrastructure/input/rest/OrderRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../twilio/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../twilio/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../twilio/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../twilio/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
@@ -60,6 +56,12 @@
       <change beforePath="$PROJECT_DIR$/../users/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../users/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../users/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../users/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../users/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../users/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../users/.idea/sonarlint/issuestore/3/9/39402b79cc4b8bb90e5ed1830dfbb595fc103e1e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../users/.idea/sonarlint/issuestore/9/9/998b782a20a2f5ef498f7a32c66587f545430a6c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../users/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../users/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../users/.idea/sonarlint/securityhotspotstore/3/9/39402b79cc4b8bb90e5ed1830dfbb595fc103e1e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../users/.idea/sonarlint/securityhotspotstore/9/9/998b782a20a2f5ef498f7a32c66587f545430a6c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../users/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../users/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../users/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../users/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
