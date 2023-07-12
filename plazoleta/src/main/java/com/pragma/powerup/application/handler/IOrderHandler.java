@@ -20,4 +20,7 @@ public interface IOrderHandler {
     OrderResponseDto notifyOrder(Long orderId);
 
     OrderResponseDto deliverOrder(Long orderId, Long pin);
+
+    OrderResponseDto cancelOrder(Long orderId);
+
 }

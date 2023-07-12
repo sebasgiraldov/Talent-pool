@@ -14,10 +14,7 @@ import com.pragma.powerup.application.mapper.IUserRequestMapper;
 import com.pragma.powerup.domain.api.*;
 import com.pragma.powerup.domain.model.*;
 import com.pragma.powerup.infrastructure.configuration.FeignClientInterceptorImp;
-import com.pragma.powerup.infrastructure.exception.DishNotFoundInRestaurantException;
-import com.pragma.powerup.infrastructure.exception.NoDataFoundException;
-import com.pragma.powerup.infrastructure.exception.OrderIsNotReadyException;
-import com.pragma.powerup.infrastructure.exception.WrongPingException;
+import com.pragma.powerup.infrastructure.exception.*;
 import com.pragma.powerup.infrastructure.input.rest.client.ITwilioClient;
 import com.pragma.powerup.infrastructure.input.rest.client.IUserClient;
 import lombok.RequiredArgsConstructor;
@@ -146,6 +143,17 @@ public class OrderHandler implements IOrderHandler {
             throw new OrderIsNotReadyException();
         }
 
+        OrderResponseDto orderResponseDto = updateOrder(orderId, orderModel);
+        return orderResponseDto;
+    }
+
+    @Override
+    public OrderResponseDto cancelOrder(Long orderId) {
+        OrderModel orderModel = orderServicePort.getOrder(orderId);
+        if(!orderModel.getOrderState().equals(OrderState.PENDIENTE)){
+            throw new OrderInPreparationException();
+        }
+        orderModel.setOrderState(OrderState.CANCELADO);
         OrderResponseDto orderResponseDto = updateOrder(orderId, orderModel);
         return orderResponseDto;
     }

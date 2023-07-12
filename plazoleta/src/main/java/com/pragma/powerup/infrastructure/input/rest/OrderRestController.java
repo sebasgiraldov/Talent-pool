@@ -220,4 +220,35 @@ public class OrderRestController {
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
 
+    @Operation(summary = "Cancel order")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Order Cancel",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = OrderResponseDto.class)))),
+    })
+    @RolesAllowed({"ROLE_CLIENTE"})
+    @PutMapping("/cancel/{orderId}")
+    public ResponseEntity<ResponseDto> cancelOrder(@PathVariable Long orderId) {
+        ResponseDto responseDto = new ResponseDto();
+
+        try {
+            OrderResponseDto orderResponseDto = orderHandler.cancelOrder(orderId);
+            responseDto.setError(false);
+            responseDto.setMessage(null);
+            responseDto.setData(orderResponseDto);
+        }catch (OrderInPreparationException ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("Lo sentimos, tu pedido ya está en preparación y no puede cancelarse");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
+        } catch (Exception ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("Error interno del servidor");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
 }
