@@ -33,11 +33,13 @@ public class UserEntity implements UserDetails {
     @OneToOne
     @JoinColumn(name = "rol_id", nullable = false)
     private RolEntity rolId;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(rolId.getName()));
     }
+
+    @OneToOne
+    @JoinColumn(name = "rol_id", nullable = false)
 
     @Override
     public String getUsername() {

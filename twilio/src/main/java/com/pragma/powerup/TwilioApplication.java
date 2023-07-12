@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 @EnableFeignClients
 @EnableEurekaClient
-@EnableGlobalMethodSecurity(jsr250Enabled=true)
 @SpringBootApplication
 public class TwilioApplication {
 

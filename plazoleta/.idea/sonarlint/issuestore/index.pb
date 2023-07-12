@@ -5,18 +5,12 @@
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 ‚
 Rsrc/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/CategoryEntity.java,3\5\35da89fad6ab5fe5d9cc998d30774d28df7b72d7
-}
-Msrc/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/RolEntity.java,a\5\a51313c398fdab3571f070d1e980e7918a0b522b
 ˆ
 Xsrc/main/java/com/pragma/powerup/infrastructure/exception/CategoryNotFoundException.java,6\b\6bbe1a6f27ae0bebe85ce96fdb47af601e7e2ddd
 „
 Tsrc/main/java/com/pragma/powerup/infrastructure/exception/DishNotFoundException.java,5\1\510764f5b2c2d849db216c18447543f08b7d8e8d
 €
 Psrc/main/java/com/pragma/powerup/application/dto/response/ResponseClientDto.java,0\6\06f3dc4d10226719da64a9b49f2ed5df3dc2d950
-u
-Esrc/main/java/com/pragma/powerup/application/handler/IJwtHandler.java,8\a\8ac8721e5038b19826eec1106eb00ba32c7f28ff
-~
-Nsrc/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/UserEntity.java,8\b\8b93abb15bdd9d592ae02ed56208b743fc0ca833
 ‡
 Wsrc/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/CategoryJpaAdapter.java,c\6\c6e5c4888b4d023d7dcff90eca53f7ff6f906639
 …
@@ -27,8 +21,6 @@ p
 @src/main/java/com/pragma/powerup/domain/model/CategoryModel.java,2\1\21279ecdf28837d97a45b12ab5521aae61fe7301
 k
 ;src/main/java/com/pragma/powerup/domain/model/RolModel.java,9\a\9a45da1b66b6c24cf4ceb29ff0b22bf695f5e590
-l
-<src/main/java/com/pragma/powerup/domain/model/UserModel.java,d\a\da6e59b0f08076156bf85061945fbfc309ab5f72
 u
 Esrc/main/java/com/pragma/powerup/domain/api/ICategoryServicePort.java,e\c\ecfdfb36f63861456348bc59bfa5b840e593bce6
 {
@@ -43,8 +35,6 @@ Dsrc/main/java/com/pragma/powerup/domain/usecase/CategoryUseCase.java,7\e\7e6b5
 Psrc/main/java/com/pragma/powerup/application/dto/request/CategoryRequestDto.java,1\7\178a349ef2329a2c0c739254d38bf95e016d3678
 ƒ
 Ssrc/main/java/com/pragma/powerup/application/dto/request/ListPaginationRequest.java,e\0\e004e66565929d3805fb93052c15f3a6c4457daf
-{
-Ksrc/main/java/com/pragma/powerup/application/dto/request/RolRequestDto.java,1\8\186b14a2614dcec79b94c73d9e8c6eaa3eab1a3e
 ‚
 Rsrc/main/java/com/pragma/powerup/application/dto/response/CategoryResponseDto.java,1\f\1f3c0bed1ca17831cbffd8423649064526a3001c
 ‡
@@ -61,8 +51,6 @@ Tsrc/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/RestaurantEntity
 Psrc/main/java/com/pragma/powerup/application/mapper/ICategoryResponseMapper.java,e\f\ef4db6ac7d294ec6abc7edb0f048334cb3da7fcb
 
 Osrc/main/java/com/pragma/powerup/application/mapper/ICategoryRequestMapper.java,7\0\709a9762bb1cd830b46f55007ad143aa83cc1d59
-{
-Ksrc/main/java/com/pragma/powerup/application/mapper/IUserRequestMapper.java,c\c\ccf75512726d5379a5e7b6d17e9be42ed512cb2f
 „
 Tsrc/main/java/com/pragma/powerup/application/dto/response/RestaurantResponseDto.java,9\5\95fb22212a956cec10708ffaaea5e7f15afd4f78
 r
@@ -85,10 +73,6 @@ Ssrc/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/DishJpaAdapter.
 Rsrc/main/java/com/pragma/powerup/infrastructure/exception/NotEnoughPrivileges.java,5\d\5d65d2e7062b3a2ae5a9fd51e0df29983fc2a824
 €
 Psrc/main/java/com/pragma/powerup/application/handler/impl/RestaurantHandler.java,6\8\68796ca8768949b32f363df0fe79beeb32becc00
-|
-Lsrc/main/java/com/pragma/powerup/application/dto/request/UserRequestDto.java,6\c\6cca9dfed4927b679140845fb93f96646f6e2b2c
-h
-8src/main/java/com/pragma/powerup/PowerUpApplication.java,e\f\ef50c06b4f89e14968d1274acc32dd2ac59a8194
 z
 Jsrc/main/java/com/pragma/powerup/domain/model/RestaurantEmployeeModel.java,e\6\e664c240c4586d72083b986774a102004bdfc804
 ƒ
@@ -119,8 +103,6 @@ Osrc/main/java/com/pragma/powerup/domain/api/IRestaurantEmployeeServicePort.java
 Xsrc/main/java/com/pragma/powerup/application/handler/impl/RestaurantEmployeeHandler.java,9\0\909e1c7b7f09dafb7c9f56257f8c1390d2d6328f
 
 `src/main/java/com/pragma/powerup/infrastructure/input/rest/RestaurantEmployeeRestController.java,b\6\b6224d77e7bd301af985b0166e2d11739febb931
-ˆ
-Xsrc/main/java/com/pragma/powerup/infrastructure/input/rest/RestaurantRestController.java,2\0\20c332790eefa59cf2c192486ee863047e448d7f
 {
 Ksrc/main/java/com/pragma/powerup/application/mapper/IDishRequestMapper.java,4\5\45bc492939feffea5f85f66dcf6663f4a1846db3
 |

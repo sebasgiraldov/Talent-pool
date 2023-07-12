@@ -1,8 +1,13 @@
 package com.pragma.powerup.infrastructure.configuration;
-
+import com.pragma.powerup.application.dto.request.UserRequestDto;
 import com.pragma.powerup.application.handler.IJwtHandler;
-import lombok.NonNull;
+import com.pragma.powerup.application.mapper.IUserRequestMapper;
+import com.pragma.powerup.domain.model.UserModel;
+import com.pragma.powerup.infrastructure.input.rest.client.IUserClient;
+import com.pragma.powerup.infrastructure.out.jpa.entity.UserEntity;
+import com.pragma.powerup.infrastructure.out.jpa.mapper.IUserEntityMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,15 +25,15 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
     private final IJwtHandler jwtHandler;
     private final UserDetailsService userDetailsService;
+    private final IUserClient userRepository;
+
+    private final IUserRequestMapper iUserRequestMapper;
+    private final IUserEntityMapper iUserEntityMapper;
 
     @Override
-    protected void doFilterInternal(@NonNull HttpServletRequest request,
-                                    @NonNull HttpServletResponse response,
-                                    @NonNull FilterChain filterChain)
-            throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
         final String userEmail;
@@ -39,7 +44,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         jwt = authHeader.substring(7);
         userEmail = jwtHandler.extractUserName(jwt);
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
+            UserRequestDto user = userRepository.getUserByEmail(userEmail).getBody().getData();
+            UserModel userModel = iUserRequestMapper.toUser(user);
+            UserEntity userEntity = iUserEntityMapper.toEntity(userModel);
+            UserDetails userDetails = userEntity;
             if (jwtHandler.isTokenValid(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,

@@ -19,5 +19,4 @@ public interface IJwtHandler {
     boolean isTokenValid(String token, UserDetails userDetails);
     boolean isTokenExpired(String token);
     Date extractExpiration(String token);
-
 }
