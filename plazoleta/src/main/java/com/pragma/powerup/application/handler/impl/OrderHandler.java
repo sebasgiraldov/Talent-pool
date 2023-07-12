@@ -16,6 +16,8 @@ import com.pragma.powerup.domain.api.*;
 import com.pragma.powerup.domain.model.*;
 import com.pragma.powerup.infrastructure.configuration.FeignClientInterceptorImp;
 import com.pragma.powerup.infrastructure.exception.DishNotFoundInRestaurantException;
+import com.pragma.powerup.infrastructure.exception.OrderIsNotReadyException;
+import com.pragma.powerup.infrastructure.exception.WrongPingException;
 import com.pragma.powerup.infrastructure.input.rest.client.IUserClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -116,4 +118,26 @@ public class OrderHandler implements IOrderHandler {
 
         return orderResponseMapper.toResponse(orderModelResponse, orderDishResponseDtoList);
     }
+
+    @Override
+    public OrderResponseDto deliverOrder(Long orderId, Long pin) {
+        OrderModel orderModel = orderServicePort.getOrder(orderId);
+        if(orderModel.getOrderState().equals(OrderState.LISTO)){
+            if (pin == orderId*1110){
+                orderModel.setOrderState(OrderState.ENTREGADO);
+            }else{
+                throw new WrongPingException();
+            }
+        } else{
+            throw new OrderIsNotReadyException();
+        }
+
+        OrderModel orderModelResponse = orderServicePort.createOrder(orderModel);
+        List<OrderDishModel> orderDishModelList = orderDishServicePort.getAllOrderDishByOrder(orderId);
+
+        List<OrderDishResponseDto> orderDishResponseDtoList = orderDishModelList.stream().map(orderDishResponseMapper::toResponse).collect(Collectors.toList());
+
+        return orderResponseMapper.toResponse(orderModelResponse, orderDishResponseDtoList);
+    }
+
 }

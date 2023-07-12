@@ -16,4 +16,6 @@ public interface IOrderHandler {
     List<OrderStateResponseDto> getAllOrdersByOrderState(OrderState orderState);
 
     OrderResponseDto asignAnOrder(Long orderId);
+
+    OrderResponseDto deliverOrder(Long orderId, Long pin);
 }

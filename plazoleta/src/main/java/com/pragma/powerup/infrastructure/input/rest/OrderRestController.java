@@ -1,14 +1,13 @@
 package com.pragma.powerup.infrastructure.input.rest;
 
+import com.pragma.powerup.application.dto.request.DeliverOrderRequestDto;
 import com.pragma.powerup.application.dto.request.OrderRequestDto;
 import com.pragma.powerup.application.dto.response.OrderResponseDto;
 import com.pragma.powerup.application.dto.response.OrderStateResponseDto;
 import com.pragma.powerup.application.dto.response.ResponseDto;
 import com.pragma.powerup.application.handler.IOrderHandler;
 import com.pragma.powerup.domain.model.OrderState;
-import com.pragma.powerup.infrastructure.exception.DishNotFoundException;
-import com.pragma.powerup.infrastructure.exception.DishNotFoundInRestaurantException;
-import com.pragma.powerup.infrastructure.exception.UserCannotMakeAnOrderException;
+import com.pragma.powerup.infrastructure.exception.*;
 import com.pragma.powerup.infrastructure.exceptionhandler.RestaurantNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -113,13 +112,12 @@ public class OrderRestController {
             responseDto.setError(false);
             responseDto.setMessage(null);
             responseDto.setData(orderStateResponseDtoList);
-        } catch (Exception ex) {
+        }  catch (Exception ex) {
             responseDto.setError(true);
             responseDto.setMessage("Error interno del servidor");
             responseDto.setData(null);
             return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
 
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
@@ -141,6 +139,42 @@ public class OrderRestController {
             responseDto.setError(false);
             responseDto.setMessage(null);
             responseDto.setData(orderResponseDto);
+        } catch (Exception ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("Error interno del servidor");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
+    @Operation(summary = "Deliver order")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Order delivered",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = OrderResponseDto.class)))),
+    })
+    @RolesAllowed({"ROLE_EMPLEADO"})
+    @PutMapping("/deliver")
+    public ResponseEntity<ResponseDto> deliverOrder(@RequestBody DeliverOrderRequestDto deliverOrderRequestDto) {
+        ResponseDto responseDto = new ResponseDto();
+
+        try {
+            OrderResponseDto orderResponseDto = orderHandler.deliverOrder(deliverOrderRequestDto.getOrderId(), deliverOrderRequestDto.getPin());
+            responseDto.setError(false);
+            responseDto.setMessage(null);
+            responseDto.setData(orderResponseDto);
+        }catch (OrderIsNotReadyException ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("La orden no esta lista");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
+        } catch (WrongPingException ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("El pin es incorrecto");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
         } catch (Exception ex) {
             responseDto.setError(true);
             responseDto.setMessage("Error interno del servidor");
