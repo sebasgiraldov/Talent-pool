@@ -1,0 +1,10 @@
+
+X
+java:S1854";Remove this useless assignment to local variable "message".(‚÷ÉØ8É¡ï²”1
+I
+java:S1481",Remove this unused "message" local variable.(‚÷ÉØ8òíÖ”1
+W
+java:S1128":Remove this unused import 'com.twilio.converter.Promoter'.(™¢ÿÖ8 ÍÜ´”1
+Z
+java:S1128
+"8Remove this unused import 'com.twilio.type.PhoneNumber'.(ÒÃìÇúÿÿÿÿ8 ÍÜ´”1

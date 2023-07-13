@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: trazabilidad
+
+  cloud:
+    config:
+      uri: http://localhost:8082
+      username: root
+      password: 12345
+      profile: dev
