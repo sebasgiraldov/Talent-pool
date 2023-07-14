@@ -8,7 +8,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class UserResponseDto {
-    private Long id;
+    private String id;
     private String name;
     private String lastName;
     private String idNumber;

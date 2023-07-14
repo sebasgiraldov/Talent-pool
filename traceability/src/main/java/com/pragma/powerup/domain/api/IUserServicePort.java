@@ -8,13 +8,11 @@ import java.util.Optional;
 
 public interface IUserServicePort {
 
-    UserModel saveUser(UserModel userModel);
-
     Optional<UserEntity> findUserByEmail(String email);
 
     UserModel findUserByEmailModel(String email);
 
-    UserModel getById(Long userId);
+    UserModel getById(String userId);
 
 
 }

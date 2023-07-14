@@ -40,72 +40,6 @@ public class UserRestController {
 
         private final IUserHandler userHandler;
 
-        @Operation(summary = "Register a new user")
-        @ApiResponses(value = {
-                @ApiResponse(responseCode = "200", description = "User created",
-                        content = @Content(mediaType = "application/json",
-                                array = @ArraySchema(schema = @Schema(implementation = UserResponseDto.class)))),
-                @ApiResponse(responseCode = "400", description = "Email already taken",
-                        content = @Content(mediaType = "application/json",
-                                array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
-        })
-        @PostMapping("/register")
-        public ResponseEntity<ResponseDto> register(@Valid @RequestBody UserRequestDto userRequestDto, BindingResult bindingResult) {
-                ResponseDto responseDto = new ResponseDto();
-
-                if (bindingResult.hasErrors()) {
-                        return ValidationErrors(bindingResult, responseDto);
-                }
-
-                try {
-                        UserResponseDto userResponseDto = userHandler.register(userRequestDto);
-                        responseDto.setError(false);
-                        responseDto.setMessage(null);
-                        responseDto.setData(userResponseDto);
-                } catch (EmailAlreadyTaken exception) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("El email ingresado ya está en uso");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
-                } catch (Exception exception) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("Error interno del servidor");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-
-                return new ResponseEntity<>(responseDto, HttpStatus.OK);
-        }
-
-
-
-        @PostMapping("/login")
-        public ResponseEntity<JwtResponseDto> login(@RequestBody AuthenticationRequestDto authenticationRequestDto) {
-                return ResponseEntity.ok(userHandler.login(authenticationRequestDto));
-        }
-
-        @GetMapping("/{id}")
-        public ResponseEntity<ResponseClientDto> getUserById(@PathVariable Long id) {
-                ResponseClientDto responseDto = new ResponseClientDto();
-                try {
-                        userHandler.getById(id);
-                        responseDto.setError(false);
-                        responseDto.setMessage(null);
-                        responseDto.setData(userHandler.getById(id));
-                } catch (NoDataFoundException ex) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("Usuario No encontrado");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
-                } catch (Exception e) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("Error interno en el servidor");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-
-                return new ResponseEntity<>(responseDto, HttpStatus.OK);
-        }
 
         @GetMapping("/email/{email}")
         public ResponseEntity<ResponseClientDto> getUserByEmail(@PathVariable String email) {
@@ -128,53 +62,6 @@ public class UserRestController {
                 }
 
                 return new ResponseEntity<>(responseDto, HttpStatus.OK);
-        }
-
-        @Operation(summary = "Register a new client")
-        @ApiResponses(value = {
-                @ApiResponse(responseCode = "201", description = "Client created",
-                        content = @Content(mediaType = "application/json",
-                                array = @ArraySchema(schema = @Schema(implementation = UserResponseDto.class)))),
-                @ApiResponse(responseCode = "400", description = "Email already taken",
-                        content = @Content(mediaType = "application/json",
-                                array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
-        })
-        @PostMapping("/client")
-        public ResponseEntity<ResponseDto> clientRegister(@Valid @RequestBody RegisterRequestDto registerRequestDto, BindingResult bindingResult) {
-                ResponseDto responseDto = new ResponseDto();
-
-                if (bindingResult.hasErrors()) {
-                        return ValidationErrors(bindingResult, responseDto);
-                }
-
-                try {
-                        UserResponseDto userResponseDto = userHandler.clientRegister(registerRequestDto);
-                        responseDto.setError(false);
-                        responseDto.setMessage(null);
-                        responseDto.setData(userResponseDto);
-                } catch (EmailAlreadyTaken exception) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("El email ingresado ya está en uso");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
-                } catch (Exception exception) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("Error interno del servidor");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-
-                return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
-        }
-
-        private ResponseEntity<ResponseDto> ValidationErrors(BindingResult bindingResult, ResponseDto responseDto) {
-                List<String> errors = bindingResult.getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList());
-
-                responseDto.setError(true);
-                responseDto.setMessage("Error en las validaciones");
-                responseDto.setData(errors);
-
-                return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
         }
 
 

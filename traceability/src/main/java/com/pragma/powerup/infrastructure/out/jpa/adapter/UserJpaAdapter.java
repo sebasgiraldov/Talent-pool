@@ -18,16 +18,7 @@ import java.util.Optional;
 public class UserJpaAdapter implements IUserPersistencePort {
     private final IUserRepository userRepository;
     private final IUserEntityMapper userEntityMapper;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
-    @Override
-    public UserModel saveUser(UserModel userModel) {
-        UserEntity userEntity = userEntityMapper.toEntity(userModel);
-        userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
-        UserEntity user = userRepository.save(userEntity);
-        return userEntityMapper.toUserModel(user);
-    }
 
     @Override
     public Optional<UserEntity> findUserByEmail(String email) {
@@ -43,7 +34,7 @@ public class UserJpaAdapter implements IUserPersistencePort {
     }
 
     @Override
-    public UserModel getById(Long userId) {
+    public UserModel getById(String userId) {
         UserEntity userEntity = userRepository.findById(userId).orElseThrow(NoDataFoundException::new);
         return userEntityMapper.toUserModel(userEntity);
     }

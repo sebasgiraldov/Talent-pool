@@ -6,8 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RestaurantEmployeeRequestDto {
-    private Long restaurantId;
-    private Long employeeId;
+    private String restaurantId;
+    private String employeeId;
     private String field;
-    private Long ownerId;
+    private String ownerId;
 }

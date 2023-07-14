@@ -16,12 +16,6 @@ public class UserUseCase implements IUserServicePort {
         this.userPersistencePort = userPersistencePort;
     }
 
-
-    @Override
-    public UserModel saveUser(UserModel userModel) {
-        return userPersistencePort.saveUser(userModel);
-    }
-
     @Override
     public Optional<UserEntity> findUserByEmail(String email) {
         return userPersistencePort.findUserByEmail(email);
@@ -33,7 +27,7 @@ public class UserUseCase implements IUserServicePort {
     }
 
     @Override
-    public UserModel getById(Long userId) {
+    public UserModel getById(String userId) {
         return userPersistencePort.getById(userId);
     }
 }

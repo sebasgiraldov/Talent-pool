@@ -12,7 +12,7 @@ public class RolJpaAdapter implements IRolPersistencePort {
     private final IRolEntityMapper rolEntityMapper;
 
     @Override
-    public RolModel getRol(Long rolId) {
+    public RolModel getRol(String rolId) {
         return rolEntityMapper.toRolModel(rolRepository.findById(rolId).orElseThrow());
     }
 }

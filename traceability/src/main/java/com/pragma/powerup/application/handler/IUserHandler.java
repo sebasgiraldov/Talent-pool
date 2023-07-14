@@ -8,17 +8,8 @@ import com.pragma.powerup.application.dto.response.UserResponseDto;
 
 public interface IUserHandler {
 
-    UserResponseDto register(UserRequestDto userRequestDto);
-
-    JwtResponseDto login(AuthenticationRequestDto authenticationRequestDto);
-
-    UserResponseDto getById(Long userId);
+    UserResponseDto getById(String userId);
 
     UserResponseDto getByEmail(String email);
 
-    UserResponseDto ownerRegister(RegisterRequestDto registerRequestDto);
-
-    UserResponseDto employeeRegister(RegisterRequestDto registerRequestDto, Long restaurantId);
-
-    UserResponseDto clientRegister(RegisterRequestDto registerRequestDto);
 }

@@ -36,5 +36,5 @@ public class UserRequestDto {
     private String password;
 
     @NotNull(message = "Id del rol es obligatorio")
-    private Long rolId;
+    private String rolId;
 }

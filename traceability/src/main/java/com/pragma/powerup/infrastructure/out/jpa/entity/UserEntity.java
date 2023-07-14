@@ -1,28 +1,26 @@
 package com.pragma.powerup.infrastructure.out.jpa.entity;
 
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Collection;
 import java.util.List;
 
 @Data
 @Builder
-@Entity
-@Table(name = "user")
+@Document(collection = "user")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class UserEntity implements UserDetails {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "user_id", nullable = false)
-    private Long id;
+    private String id;
     private String name;
     private String lastName;
     private String idNumber;
@@ -30,8 +28,7 @@ public class UserEntity implements UserDetails {
     private String email;
     private String password;
 
-    @OneToOne
-    @JoinColumn(name = "rol_id", nullable = false)
+    @DBRef
     private RolEntity rolId;
 
     @Override
