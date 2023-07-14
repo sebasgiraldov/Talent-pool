@@ -67,8 +67,6 @@ l
 <src/main/java/com/pragma/powerup/domain/model/UserModel.java,d\a\da6e59b0f08076156bf85061945fbfc309ab5f72
 m
 =src/test/java/com/pragma/powerup/PowerUpApplicationTests.java,4\7\472caa4ccb29822e21f22aac23a9621137840d59
-q
-Asrc/main/java/com/pragma/powerup/domain/api/IUserServicePort.java,7\8\789c0668aee472fb9e2b32bb54f6241a80ed135f
 |
 Lsrc/main/java/com/pragma/powerup/application/dto/request/UserRequestDto.java,6\c\6cca9dfed4927b679140845fb93f96646f6e2b2c
 ‹

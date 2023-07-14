@@ -5,8 +5,6 @@ h
 Psrc/main/java/com/pragma/powerup/infrastructure/exception/EmailAlreadyTaken.java,2\0\20fb45a3887590a7f2440455add5c746d8f2bfd3
 m
 =src/test/java/com/pragma/powerup/PowerUpApplicationTests.java,4\7\472caa4ccb29822e21f22aac23a9621137840d59
-„
-Tsrc/main/java/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.java,c\0\c0e8befb06a1403d2c8a62ff7c272ac36ffee519
 Œ
 \src/main/java/com/pragma/powerup/infrastructure/configuration/FeignClientInterceptorImp.java,2\b\2b7b155555f3e26044359bb054bca846dacb17f3
 ‡

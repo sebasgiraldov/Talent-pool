@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cff2f0f-d4f6-4dca-baf2-91dcc649fd76" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/issuestore/1/b/1b308a59d90717fbe2217714729c8f0e4947a8e7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/issuestore/b/3/b3d2ce84b7fc46e08dbbacbe481fdb8e350311c5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/issuestore/b/8/b8575a141aebd71ea0da9c0cdcbc9734aef2ddc5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/issuestore/c/f/cf1a75260c1d2ed766201228138bfac718d11f1b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/issuestore/d/0/d05cca052398fb0d5c160827af0a2840440acffc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/securityhotspotstore/1/b/1b308a59d90717fbe2217714729c8f0e4947a8e7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/securityhotspotstore/b/3/b3d2ce84b7fc46e08dbbacbe481fdb8e350311c5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/securityhotspotstore/b/8/b8575a141aebd71ea0da9c0cdcbc9734aef2ddc5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/securityhotspotstore/c/f/cf1a75260c1d2ed766201228138bfac718d11f1b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/securityhotspotstore/d/0/d05cca052398fb0d5c160827af0a2840440acffc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/dto/request/OrderLogRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/dto/response/AllOrderLogResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/dto/response/OrderLogResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/handler/IOrderLogHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/handler/impl/OrderLogHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/mapper/IOrderLogRequestMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/mapper/IOrderLogResponseMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/api/IOrderLogServicePort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/model/OrderLogModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/spi/IOrderLogPersistencePort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/usecase/OrderLogUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/input/rest/OrderLogRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/OrderLogJpaAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/OrderLogEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/mapper/IOrderLogEntityMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/repository/IOrderLogRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-data/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/7.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/7.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../config-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../config-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
@@ -28,145 +30,99 @@
       <change beforePath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-server/.gradle/7.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../discovery-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/2/0/20c332790eefa59cf2c192486ee863047e448d7f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/2/8/28e8839960966c356d9c23e9db8d2c449f00bf85" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/2/a/2a1bad0b4ccb8e1b446bb0be670688eb6d02f0c6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/5/3/53921ab52d1da17709a4f6657be6ded6b9d13d07" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/6/8/68796ca8768949b32f363df0fe79beeb32becc00" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/6/a/6a9e43b0c6b8fa29e2308b5b1d5557a3acc9c735" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/7/5/752a97d8a1ff29212e2f525c8ac92c55aeb82596" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/8/f/8fff9bf26bafb30047411bd3b1e82735fcf979a9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/9/3/93186069785ef079be8d176414b22ad4ab07d54b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/a/5/a586d5aac060aeba2587c7ce23abaaacfa88fbae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/a/c/ac0a25a80c81a1de2bfb275d91af18e322feec0e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/b/c/bc7576a824c09b021235bb2d7ffb1cc4597af09c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/d/4/d43b91abb1a2534eda0b17b52ead12b6eecda6fb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/d/f/df3d2d02fc967f49b38e5d8086fd8bc329ae8d57" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/e/c/eceb2a6d178a9d09a8450778a15ebd0bdd97adad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/2/0/20c332790eefa59cf2c192486ee863047e448d7f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/2/8/28e8839960966c356d9c23e9db8d2c449f00bf85" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/2/a/2a1bad0b4ccb8e1b446bb0be670688eb6d02f0c6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/5/3/53921ab52d1da17709a4f6657be6ded6b9d13d07" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/6/8/68796ca8768949b32f363df0fe79beeb32becc00" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/6/a/6a9e43b0c6b8fa29e2308b5b1d5557a3acc9c735" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/7/5/752a97d8a1ff29212e2f525c8ac92c55aeb82596" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/8/f/8fff9bf26bafb30047411bd3b1e82735fcf979a9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/9/3/93186069785ef079be8d176414b22ad4ab07d54b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/a/5/a586d5aac060aeba2587c7ce23abaaacfa88fbae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/a/c/ac0a25a80c81a1de2bfb275d91af18e322feec0e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/b/c/bc7576a824c09b021235bb2d7ffb1cc4597af09c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/d/4/d43b91abb1a2534eda0b17b52ead12b6eecda6fb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/d/f/df3d2d02fc967f49b38e5d8086fd8bc329ae8d57" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/e/c/eceb2a6d178a9d09a8450778a15ebd0bdd97adad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plazoleta/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/build/reports/tests/test/classes/com.pragma.powerup.OrderHandlerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/reports/tests/test/classes/com.pragma.powerup.OrderHandlerTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/build/reports/tests/test/packages/com.pragma.powerup.html" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/reports/tests/test/packages/com.pragma.powerup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/build/test-results/test/TEST-com.pragma.powerup.OrderHandlerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/test-results/test/TEST-com.pragma.powerup.OrderHandlerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plazoleta/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../plazoleta/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../traceability/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../traceability/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../traceability/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../traceability/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../traceability/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/0/3/0313649f4dd075ff5b87bc5a11c030637a95fec5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/0/5/0561048c131b689bbd279ce34a5ed8d55ee32d8e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/0/6/06f3dc4d10226719da64a9b49f2ed5df3dc2d950" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/0/8/0864850c56e7875fa16719a06dcb8cbc3564a433" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/3/8/38d659cebfbb7c4946328458c3693437a06df7ca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/4/3/43c3b257f3cde7803f09fee85b65aa882565b2a3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/4/9/49d123ab3082568a5422d1423b45d5e63911e59e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/5/0/501e3f08d8d08f5b175eef08fc719865876034bb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/5/0/50c5ea17a406dd5e4196164703331ce8559964e5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/6/c/6cca9dfed4927b679140845fb93f96646f6e2b2c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/7/2/72a010bc8cda60f4141990329a504e523cf55fc6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/7/8/789c0668aee472fb9e2b32bb54f6241a80ed135f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/7/b/7bc1312b9289ecf16cce6d7f8f6fdabb4dae2960" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/8/a/8ac8721e5038b19826eec1106eb00ba32c7f28ff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/8/b/8b93abb15bdd9d592ae02ed56208b743fc0ca833" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/9/a/9a45da1b66b6c24cf4ceb29ff0b22bf695f5e590" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/a/5/a51313c398fdab3571f070d1e980e7918a0b522b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/a/8/a8ae14cc513cf4487961365679868ae8d6c93f2e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/a/e/ae859855be5aeb8067da35db2f7240a5325e5856" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/a/f/afafec66958b7fb068ff4840eede158009e87467" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/b/3/b38b8b1b9cb87e38a6c306010cf05c392ce07677" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/b/3/b3fee1aa6a23ab19de332ffe1d4754c42671c5f3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/b/6/b607b31ba201bf8224ffefc7b64c13aac0313515" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/b/d/bd10530fed3a85d3e5ff44f4d8350807c135a6bd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/c/1/c123176d79d23d494bcf9a7a5b6a053ce112d2ab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/c/2/c26fed13c40b3878a8b4dcf010190361af053697" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/c/2/c279c4c1dd7e016458b3f865c1bc22fad880886a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/c/2/c2e8715622d940b203daf8289a78c0d7b0a05484" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/c/3/c352834a03e95ef2976994799442218f8448df64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/c/b/cbb1a33e8861baaf81ebff5379c55ae74b9afcaa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/c/c/ccf75512726d5379a5e7b6d17e9be42ed512cb2f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/c/d/cd18d791c3f76ff359854aaf7d93aa1fb937568e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/d/a/da6e59b0f08076156bf85061945fbfc309ab5f72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/d/b/db07142346a5b1b9f099fe2f006b2b787e15b477" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/e/2/e27d7070cbfc6692adaa2d2c8f566696caa51275" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/e/d/eda7aee30deeab315fd26fbc538f773fe6c78a28" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/f/3/f363dd695338c8a9e5d352ad366babeb765925f5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/f/7/f7ebbcf2472336ad103ff495885221f44cb51f49" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/c/0/c0e8befb06a1403d2c8a62ff7c272ac36ffee519" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/0/3/0313649f4dd075ff5b87bc5a11c030637a95fec5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/0/5/0561048c131b689bbd279ce34a5ed8d55ee32d8e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/0/6/06f3dc4d10226719da64a9b49f2ed5df3dc2d950" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/0/8/0864850c56e7875fa16719a06dcb8cbc3564a433" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/3/8/38d659cebfbb7c4946328458c3693437a06df7ca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/4/3/43c3b257f3cde7803f09fee85b65aa882565b2a3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/4/9/49d123ab3082568a5422d1423b45d5e63911e59e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/5/0/501e3f08d8d08f5b175eef08fc719865876034bb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/5/0/50c5ea17a406dd5e4196164703331ce8559964e5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/6/c/6cca9dfed4927b679140845fb93f96646f6e2b2c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/7/2/72a010bc8cda60f4141990329a504e523cf55fc6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/7/8/789c0668aee472fb9e2b32bb54f6241a80ed135f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/7/b/7bc1312b9289ecf16cce6d7f8f6fdabb4dae2960" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/8/a/8ac8721e5038b19826eec1106eb00ba32c7f28ff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/8/b/8b93abb15bdd9d592ae02ed56208b743fc0ca833" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/9/a/9a45da1b66b6c24cf4ceb29ff0b22bf695f5e590" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/a/5/a51313c398fdab3571f070d1e980e7918a0b522b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/a/8/a8ae14cc513cf4487961365679868ae8d6c93f2e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/a/e/ae859855be5aeb8067da35db2f7240a5325e5856" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/a/f/afafec66958b7fb068ff4840eede158009e87467" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/b/3/b38b8b1b9cb87e38a6c306010cf05c392ce07677" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/b/3/b3fee1aa6a23ab19de332ffe1d4754c42671c5f3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/b/6/b607b31ba201bf8224ffefc7b64c13aac0313515" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/b/d/bd10530fed3a85d3e5ff44f4d8350807c135a6bd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/c/1/c123176d79d23d494bcf9a7a5b6a053ce112d2ab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/c/2/c26fed13c40b3878a8b4dcf010190361af053697" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/c/2/c279c4c1dd7e016458b3f865c1bc22fad880886a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/c/2/c2e8715622d940b203daf8289a78c0d7b0a05484" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/c/3/c352834a03e95ef2976994799442218f8448df64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/c/b/cbb1a33e8861baaf81ebff5379c55ae74b9afcaa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/c/c/ccf75512726d5379a5e7b6d17e9be42ed512cb2f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/c/d/cd18d791c3f76ff359854aaf7d93aa1fb937568e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/d/a/da6e59b0f08076156bf85061945fbfc309ab5f72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/d/b/db07142346a5b1b9f099fe2f006b2b787e15b477" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/e/2/e27d7070cbfc6692adaa2d2c8f566696caa51275" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/e/d/eda7aee30deeab315fd26fbc538f773fe6c78a28" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/f/3/f363dd695338c8a9e5d352ad366babeb765925f5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/f/7/f7ebbcf2472336ad103ff495885221f44cb51f49" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/c/0/c0e8befb06a1403d2c8a62ff7c272ac36ffee519" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/utils/ValidationUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/dto/request/RestaurantEmployeeRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/dto/request/RestaurantEmployeeRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/dto/request/UserRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/dto/request/UserRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/dto/response/UserResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/dto/response/UserResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/handler/IUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/handler/IUserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/dto/request/RestaurantEmployeeRequestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/dto/request/RestaurantEmployeeRequestDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/dto/request/UserRequestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/dto/request/UserRequestDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/dto/response/UserResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/dto/response/UserResponseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/handler/IUserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/handler/IUserHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/handler/impl/UserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/handler/impl/UserHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/mapper/IUserRequestMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/mapper/IUserRequestMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/mapper/IUserResponseMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/application/mapper/IUserResponseMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/api/IRolServicePort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/api/IRolServicePort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/api/IUserServicePort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/api/IUserServicePort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/model/RolModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/model/RolModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/model/UserModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/model/UserModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/spi/IRolPersistencePort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/spi/IRolPersistencePort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/spi/IUserPersistencePort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/spi/IUserPersistencePort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/usecase/RolUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/usecase/RolUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/usecase/UserUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/domain/usecase/UserUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/input/rest/AuthenticationRestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/input/rest/Plazoleta/IPlazoletaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/input/rest/UserRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/input/rest/UserRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/adapter/RolJpaAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/adapter/RolJpaAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/adapter/UserJpaAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/adapter/UserJpaAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/entity/RolEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/entity/RolEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/entity/UserEntity$UserEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/entity/UserEntity$UserEntityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/entity/UserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/mapper/IRolEntityMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/mapper/IRolEntityMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/mapper/IUserEntityMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/mapper/IUserEntityMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/repository/IRolRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/repository/IRolRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/repository/IUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/classes/java/main/com/pragma/powerup/infrastructure/out/jpa/repository/IUserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/application/mapper/IRolResponseMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/application/mapper/IRolResponseMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/application/mapper/IUserRequestMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/application/mapper/IUserRequestMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/application/mapper/IUserResponseMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/application/mapper/IUserResponseMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/infrastructure/out/jpa/mapper/IRolEntityMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/infrastructure/out/jpa/mapper/IRolEntityMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/infrastructure/out/jpa/mapper/IUserEntityMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/generated/sources/annotationProcessor/java/main/com/pragma/powerup/infrastructure/out/jpa/mapper/IUserEntityMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/handler/impl/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/application/handler/impl/UserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/api/IRolServicePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/api/IRolServicePort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/api/IUserServicePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/api/IUserServicePort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/model/RolModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/model/RolModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/model/UserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/spi/IRolPersistencePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/spi/IRolPersistencePort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/spi/IUserPersistencePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/spi/IUserPersistencePort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/usecase/RolUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/usecase/RolUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/usecase/UserUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/domain/usecase/UserUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/input/rest/AuthenticationRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/input/rest/Plazoleta/IPlazoletaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/input/rest/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/input/rest/UserRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/RolJpaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/RolJpaAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/UserJpaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/adapter/UserJpaAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/RolEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/RolEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/repository/IRolRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/repository/IRolRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/out/jpa/repository/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../traceability/src/main/java/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/789c0668aee472fb9e2b32bb54f6241a80ed135f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/8/789c0668aee472fb9e2b32bb54f6241a80ed135f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.pragma.powerup.application.handler.impl.UserHandlerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.pragma.powerup.application.handler.impl.UserHandlerTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.pragma.powerup.application.handler.impl.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.pragma.powerup.application.handler.impl.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.pragma.powerup.application.handler.impl.UserHandlerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.pragma.powerup.application.handler.impl.UserHandlerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,14 +193,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/sebastian.giraldo_pr/Desktop/Proyecto talent pool/traceability"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebastian.giraldo_pr/Desktop/Proyecto talent pool/traceability&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.pragma.powerup.infrastructure.exception" />

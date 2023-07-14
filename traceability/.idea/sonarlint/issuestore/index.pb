@@ -7,8 +7,6 @@ m
 =src/test/java/com/pragma/powerup/PowerUpApplicationTests.java,4\7\472caa4ccb29822e21f22aac23a9621137840d59
 Œ
 \src/main/java/com/pragma/powerup/infrastructure/configuration/FeignClientInterceptorImp.java,2\b\2b7b155555f3e26044359bb054bca846dacb17f3
-„
-Tsrc/main/java/com/pragma/powerup/infrastructure/configuration/BeanConfiguration.java,c\0\c0e8befb06a1403d2c8a62ff7c272ac36ffee519
 ‡
 Wsrc/main/java/com/pragma/powerup/infrastructure/documentation/OpenApiConfiguration.java,a\1\a1f5ae6cc69beda6f90388d53f956c6c3063e4cb
 y

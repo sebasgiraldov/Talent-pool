@@ -6,11 +6,9 @@ import com.pragma.powerup.domain.api.IUserServicePort;
 import com.pragma.powerup.domain.model.UserModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class UserHandler implements IUserHandler {
 
     private final IUserServicePort userServicePort;

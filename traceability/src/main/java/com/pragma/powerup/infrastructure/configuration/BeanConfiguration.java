@@ -1,15 +1,21 @@
 package com.pragma.powerup.infrastructure.configuration;
 
+import com.pragma.powerup.domain.api.IOrderLogServicePort;
 import com.pragma.powerup.domain.api.IRolServicePort;
 import com.pragma.powerup.domain.api.IUserServicePort;
+import com.pragma.powerup.domain.spi.IOrderLogPersistencePort;
 import com.pragma.powerup.domain.spi.IRolPersistencePort;
 import com.pragma.powerup.domain.spi.IUserPersistencePort;
+import com.pragma.powerup.domain.usecase.OrderLogUseCase;
 import com.pragma.powerup.domain.usecase.RolUseCase;
 import com.pragma.powerup.domain.usecase.UserUseCase;
+import com.pragma.powerup.infrastructure.out.jpa.adapter.OrderLogJpaAdapter;
 import com.pragma.powerup.infrastructure.out.jpa.adapter.RolJpaAdapter;
 import com.pragma.powerup.infrastructure.out.jpa.adapter.UserJpaAdapter;
+import com.pragma.powerup.infrastructure.out.jpa.mapper.IOrderLogEntityMapper;
 import com.pragma.powerup.infrastructure.out.jpa.mapper.IRolEntityMapper;
 import com.pragma.powerup.infrastructure.out.jpa.mapper.IUserEntityMapper;
+import com.pragma.powerup.infrastructure.out.jpa.repository.IOrderLogRepository;
 import com.pragma.powerup.infrastructure.out.jpa.repository.IRolRepository;
 import com.pragma.powerup.infrastructure.out.jpa.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +37,8 @@ public class BeanConfiguration {
     private final IUserEntityMapper userEntityMapper;
     private final IRolRepository rolRepository;
     private final IRolEntityMapper rolEntityMapper;
+    private final IOrderLogRepository orderLogRepository;
+    private final IOrderLogEntityMapper orderLogEntityMapper;
 
     @Bean
     public IUserPersistencePort userPersistencePort(){
@@ -40,6 +48,16 @@ public class BeanConfiguration {
     @Bean
     public IUserServicePort userServicePort() {
         return new UserUseCase(userPersistencePort());
+    }
+
+    @Bean
+    public IOrderLogPersistencePort orderLogPersistencePort(){
+        return new OrderLogJpaAdapter(orderLogRepository, orderLogEntityMapper);
+    }
+
+    @Bean
+    public IOrderLogServicePort orderLogServicePort() {
+        return new OrderLogUseCase(orderLogPersistencePort());
     }
 
     @Bean
