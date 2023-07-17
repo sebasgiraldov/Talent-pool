@@ -1,9 +1,6 @@
 package com.pragma.powerup.application.handler.impl;
 
-import com.pragma.powerup.application.dto.request.OrderDishRequestDto;
-import com.pragma.powerup.application.dto.request.OrderRequestDto;
-import com.pragma.powerup.application.dto.request.TwilioRequestDto;
-import com.pragma.powerup.application.dto.request.UserRequestDto;
+import com.pragma.powerup.application.dto.request.*;
 import com.pragma.powerup.application.dto.response.*;
 import com.pragma.powerup.application.handler.IOrderDishHandler;
 import com.pragma.powerup.application.handler.IOrderHandler;
@@ -15,12 +12,15 @@ import com.pragma.powerup.domain.api.*;
 import com.pragma.powerup.domain.model.*;
 import com.pragma.powerup.infrastructure.configuration.FeignClientInterceptorImp;
 import com.pragma.powerup.infrastructure.exception.*;
+import com.pragma.powerup.infrastructure.input.rest.client.ITraceabilityClient;
 import com.pragma.powerup.infrastructure.input.rest.client.ITwilioClient;
 import com.pragma.powerup.infrastructure.input.rest.client.IUserClient;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -45,6 +45,13 @@ public class OrderHandler implements IOrderHandler {
     private final IUserRequestMapper userRequestMapper;
     private final IDishServicePort dishServicePort;
     private final ITwilioClient twilioClient;
+    private final ITraceabilityClient traceabilityClient;
+
+    Date fechaActual = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+    String fechaFormateada = dateFormat.format(fechaActual);
+
+
     @Override
     public OrderResponseDto createOrder(OrderRequestDto orderRequestDto) {
         RestaurantModel restaurantModel = restaurantServicePort.getRestaurant(orderRequestDto.getRestaurantId());
@@ -64,6 +71,15 @@ public class OrderHandler implements IOrderHandler {
         orderModel.setRestaurantId(restaurantModel);
 
         OrderModel orderModelResponse = orderServicePort.createOrder(orderModel);
+
+        OrderLogRequestDto orderLogRequestDto = new OrderLogRequestDto();
+        orderLogRequestDto.setOrderId(orderModelResponse.getId());
+        orderLogRequestDto.setClientId(orderModelResponse.getClientId().getId());
+        orderLogRequestDto.setState(orderModelResponse.getOrderState().name());
+        orderLogRequestDto.setDate(new Date());
+        System.out.println(" AAAAAAAAAAAAAAAAAA " + new Date());
+        ResponseDto responseDto = traceabilityClient.saveOrderLog(orderLogRequestDto).getBody();
+        System.out.println(responseDto + " AAAAAAAAAAAAAAAAAA " + new Date());
 
         List<OrderDishRequestDto> orderDishRequestDtoList = orderRequestDto.getOrders();
 
@@ -160,6 +176,12 @@ public class OrderHandler implements IOrderHandler {
 
     public OrderResponseDto updateOrder(Long orderId, OrderModel orderModel){
         OrderModel orderModelResponse = orderServicePort.createOrder(orderModel);
+        OrderLogRequestDto orderLogRequestDto = new OrderLogRequestDto();
+        orderLogRequestDto.setOrderId(orderModel.getId());
+        orderLogRequestDto.setClientId(orderModel.getClientId().getId());
+        orderLogRequestDto.setState(orderModel.getOrderState().name());
+        orderLogRequestDto.setDate(new Date());
+        traceabilityClient.saveOrderLog(orderLogRequestDto);
         List<OrderDishModel> orderDishModelList = orderDishServicePort.getAllOrderDishByOrder(orderId);
 
         List<OrderDishResponseDto> orderDishResponseDtoList = orderDishModelList.stream().map(orderDishResponseMapper::toResponse).collect(Collectors.toList());

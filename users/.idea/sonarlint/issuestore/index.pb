@@ -93,3 +93,5 @@ Xsrc/main/java/com/pragma/powerup/infrastructure/configuration/SecurityConfigura
 Zsrc/test/java/com/pragma/powerup/application/handler/impl/Factory/FactoryUserDataTest.java,c\2\c2e8715622d940b203daf8289a78c0d7b0a05484
 ~
 Nsrc/test/java/com/pragma/powerup/application/handler/impl/UserHandlerTest.java,b\d\bd10530fed3a85d3e5ff44f4d8350807c135a6bd
+q
+Asrc/main/java/com/pragma/powerup/domain/api/IUserServicePort.java,7\8\789c0668aee472fb9e2b32bb54f6241a80ed135f

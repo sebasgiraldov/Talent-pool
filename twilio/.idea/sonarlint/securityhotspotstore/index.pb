@@ -57,12 +57,6 @@ Lsrc/main/java/com/pragma/powerup/application/dto/request/UserRequestDto.java,6
 Ksrc/main/java/com/pragma/powerup/application/dto/request/RolRequestDto.java,1\8\186b14a2614dcec79b94c73d9e8c6eaa3eab1a3e
 Š
 Zsrc/main/java/com/pragma/powerup/infrastructure/configuration/JwtAuthenticationFilter.java,9\9\998b782a20a2f5ef498f7a32c66587f545430a6c
-|
-Lsrc/main/java/com/pragma/powerup/application/handler/impl/TwilioHandler.java,a\3\a37eee6280f4a055b6779aa30075a7cde135db6a
-‹
-[src/main/java/com/pragma/powerup/infrastructure/input/rest/client/TwilioRestController.java,3\4\34a7585bfa2e3a87062fc9f3658f75503adab3bf
-~
-Nsrc/main/java/com/pragma/powerup/application/dto/request/TwilioRequestDto.java,d\3\d3fa126a84818edb7a8fcd7f3d7ffe9845cd9fa6
 z
 Jsrc/main/java/com/pragma/powerup/application/dto/response/ResponseDto.java,c\2\c26fed13c40b3878a8b4dcf010190361af053697
 ~

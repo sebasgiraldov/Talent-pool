@@ -1,0 +1,5 @@
+
+~
+java:S1488 "aImmediately return this expression instead of assigning it to the temporary variable "userModel".(Åæ¼À8¯µ†ê1
+†
+java:S3655"dCall "userEntityOptional.isPresent()" or "!userEntityOptional.isEmpty()" before accessing the value.(‰õ…ßøÿÿÿÿ8²¼Õñ1
