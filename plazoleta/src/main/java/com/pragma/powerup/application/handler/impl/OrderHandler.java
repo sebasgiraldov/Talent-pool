@@ -77,10 +77,8 @@ public class OrderHandler implements IOrderHandler {
         orderLogRequestDto.setClientId(orderModelResponse.getClientId().getId());
         orderLogRequestDto.setState(orderModelResponse.getOrderState().name());
         orderLogRequestDto.setDate(new Date());
-        System.out.println(" AAAAAAAAAAAAAAAAAA " + new Date());
+        orderLogRequestDto.setRestaurantId(orderModelResponse.getRestaurantId().getId());
         ResponseDto responseDto = traceabilityClient.saveOrderLog(orderLogRequestDto).getBody();
-        System.out.println(responseDto + " AAAAAAAAAAAAAAAAAA " + new Date());
-
         List<OrderDishRequestDto> orderDishRequestDtoList = orderRequestDto.getOrders();
 
         List<OrderDishResponseDto> orderDishResponseDtoList =
@@ -181,6 +179,8 @@ public class OrderHandler implements IOrderHandler {
         orderLogRequestDto.setClientId(orderModel.getClientId().getId());
         orderLogRequestDto.setState(orderModel.getOrderState().name());
         orderLogRequestDto.setDate(new Date());
+        orderLogRequestDto.setRestaurantId(orderModel.getRestaurantId().getId());
+        orderLogRequestDto.setEmployeeId(orderModel.getChefId().getId());
         traceabilityClient.saveOrderLog(orderLogRequestDto);
         List<OrderDishModel> orderDishModelList = orderDishServicePort.getAllOrderDishByOrder(orderId);
 

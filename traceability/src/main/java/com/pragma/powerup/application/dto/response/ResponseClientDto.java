@@ -1,5 +1,6 @@
 package com.pragma.powerup.application.dto.response;
 
+import com.pragma.powerup.application.dto.request.UserRequestDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,5 +9,5 @@ import lombok.Setter;
 public class ResponseClientDto {
     private boolean error;
     private String message;
-    private UserResponseDto data;
+    private UserRequestDto data;
 }

@@ -14,6 +14,9 @@ public class OrderLogRequestDto {
     private Long clientId;
     @NotNull(message = "Id del pedido es obligatorio")
     private Long orderId;
+    @NotNull(message = "Id del restaurante es obligatorio")
+    private Long restaurantId;
+    private Long employeeId;
     @NotNull(message = "La fecha es obligatoria")
     private Date date;
     @NotNull(message = "El estado es obligatorio")

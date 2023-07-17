@@ -9,6 +9,7 @@ import java.util.Date;
 @Setter
 public class AllOrderLogResponseDto {
     private Long orderId;
+    private Long restaurantId;
     private Date date;
     private String state;
 }

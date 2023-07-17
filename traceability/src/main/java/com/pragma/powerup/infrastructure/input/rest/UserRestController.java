@@ -41,29 +41,5 @@ public class UserRestController {
         private final IUserHandler userHandler;
 
 
-        @GetMapping("/email/{email}")
-        public ResponseEntity<ResponseClientDto> getUserByEmail(@PathVariable String email) {
-                ResponseClientDto responseDto = new ResponseClientDto();
-                try {
-                        userHandler.getByEmail(email);
-                        responseDto.setError(false);
-                        responseDto.setMessage(null);
-                        responseDto.setData(userHandler.getByEmail(email));
-                } catch (NoDataFoundException ex) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("Usuario No encontrado");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
-                } catch (Exception e) {
-                        responseDto.setError(true);
-                        responseDto.setMessage("Error interno en el servidor");
-                        responseDto.setData(null);
-                        return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-
-                return new ResponseEntity<>(responseDto, HttpStatus.OK);
-        }
-
-
 }
 

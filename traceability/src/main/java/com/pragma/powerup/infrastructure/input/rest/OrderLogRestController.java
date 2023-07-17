@@ -1,9 +1,7 @@
 package com.pragma.powerup.infrastructure.input.rest;
 
 import com.pragma.powerup.application.dto.request.OrderLogRequestDto;
-import com.pragma.powerup.application.dto.response.AllOrderLogResponseDto;
-import com.pragma.powerup.application.dto.response.OrderLogResponseDto;
-import com.pragma.powerup.application.dto.response.ResponseDto;
+import com.pragma.powerup.application.dto.response.*;
 import com.pragma.powerup.application.handler.IOrderLogHandler;
 import com.pragma.powerup.infrastructure.exception.NoDataFoundException;
 import io.swagger.v3.oas.annotations.Operation;
@@ -88,6 +86,94 @@ public class OrderLogRestController {
 
     }
 
+    @Operation(summary = "Get efficiency by order")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "order efficiency",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = AllOrderLogResponseDto.class)))),
+            @ApiResponse(responseCode = "404", description = "No data found",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
+    })
+    @GetMapping("/efficiency/{id}")
+    public ResponseEntity<ResponseDto> getEfficiencyByOrderId(@Valid @PathVariable Long id) {
+        ResponseDto responseDto = new ResponseDto();
+
+        try {
+            OrderDurationResponseDto orderDurationResponseDto = orderLogHandler.getOrderDuration(id);
+            responseDto.setError(false);
+            responseDto.setMessage(null);
+            responseDto.setData(orderDurationResponseDto);
+
+        } catch (NoDataFoundException ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("No se encontró el pedido");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+    }
+
+    @Operation(summary = "Get orders efficiency")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "order efficiency",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = AllOrderLogResponseDto.class)))),
+            @ApiResponse(responseCode = "404", description = "No data found",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
+    })
+    @GetMapping("/orderEfficiency/{id}")
+    public ResponseEntity<ResponseDto> getEfficiency(@Valid @PathVariable Long id) {
+        ResponseDto responseDto = new ResponseDto();
+        try {
+            List<OrderDurationResponseDto> orderDurationResponseDto = orderLogHandler.getAllOrderLogsEfficiency(id);
+            responseDto.setError(false);
+            responseDto.setMessage(null);
+            responseDto.setData(orderDurationResponseDto);
+
+        } catch (NoDataFoundException ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("No se encontró información");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+    }
+
+
+    @Operation(summary = "Get employees average by restaurant")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "order efficiency average by employees",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = AllOrderLogResponseDto.class)))),
+            @ApiResponse(responseCode = "404", description = "No data found",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = ResponseDto.class)))),
+    })
+    @GetMapping("/ranking/{id}")
+    public ResponseEntity<ResponseDto> getRanking(@Valid @PathVariable Long id) {
+        ResponseDto responseDto = new ResponseDto();
+        try {
+            List<EmployeeOrderDurationResponseDto> employeeOrderDurationResponseDtos = orderLogHandler.getAllOrderLogsEmployees(id);
+            responseDto.setError(false);
+            responseDto.setMessage(null);
+            responseDto.setData(employeeOrderDurationResponseDtos);
+
+        } catch (NoDataFoundException ex) {
+            responseDto.setError(true);
+            responseDto.setMessage("No se encontró información");
+            responseDto.setData(null);
+            return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+    }
 
 
 

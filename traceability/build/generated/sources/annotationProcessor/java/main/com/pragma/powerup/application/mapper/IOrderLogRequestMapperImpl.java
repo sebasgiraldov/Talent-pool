@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-07-14T16:25:57-0500",
+    date = "2023-07-17T17:54:30-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.5.jar, environment: Java 17.0.7 (Oracle Corporation)"
 )
 @Component
@@ -25,6 +25,8 @@ public class IOrderLogRequestMapperImpl implements IOrderLogRequestMapper {
         orderLogModel.setState( orderLogRequestDto.getState() );
         orderLogModel.setClientId( orderLogRequestDto.getClientId() );
         orderLogModel.setOrderId( orderLogRequestDto.getOrderId() );
+        orderLogModel.setRestaurantId( orderLogRequestDto.getRestaurantId() );
+        orderLogModel.setEmployeeId( orderLogRequestDto.getEmployeeId() );
         orderLogModel.setDate( orderLogRequestDto.getDate() );
 
         return orderLogModel;
@@ -40,6 +42,8 @@ public class IOrderLogRequestMapperImpl implements IOrderLogRequestMapper {
 
         orderLogResponseDto.setClientId( orderLogModel.getClientId() );
         orderLogResponseDto.setOrderId( orderLogModel.getOrderId() );
+        orderLogResponseDto.setRestaurantId( orderLogModel.getRestaurantId() );
+        orderLogResponseDto.setEmployeeId( orderLogModel.getEmployeeId() );
         orderLogResponseDto.setDate( orderLogModel.getDate() );
         orderLogResponseDto.setState( orderLogModel.getState() );
 

@@ -1,43 +1,51 @@
 
 }
-java:S1128"`Remove this unused import 'com.pragma.powerup.application.dto.request.AuthenticationRequestDto'.(ùû¹í8“ª·¨•1
+java:S1128"`Remove this unused import 'com.pragma.powerup.application.dto.request.AuthenticationRequestDto'.(ùû¹í8ŸÙ¿°–1
 w
-java:S1128"ZRemove this unused import 'com.pragma.powerup.application.dto.request.RegisterRequestDto'.(üğ©ÿ8¹—¸¨•1
+java:S1128"ZRemove this unused import 'com.pragma.powerup.application.dto.request.RegisterRequestDto'.(üğ©ÿ8ŸÙ¿°–1
 s
-java:S1128"VRemove this unused import 'com.pragma.powerup.application.dto.request.UserRequestDto'.(î‡çŒ8¼ü¶¨•1
+java:S1128"VRemove this unused import 'com.pragma.powerup.application.dto.request.UserRequestDto'.(î‡çŒ8ŸÙ¿°–1
 y
-java:S1128"WRemove this unused import 'com.pragma.powerup.application.dto.response.JwtResponseDto'.(Ã‚Ûëøÿÿÿÿ8“ª·¨•1
-q
-java:S1128"TRemove this unused import 'com.pragma.powerup.application.dto.response.ResponseDto'.(ÃäÈ8¤Ù¸¨•1
-u
-java:S1128	"XRemove this unused import 'com.pragma.powerup.application.dto.response.UserResponseDto'.(Î¥µ8¹—¸¨•1
+java:S1128"WRemove this unused import 'com.pragma.powerup.application.dto.response.JwtResponseDto'.(Ã‚Ûëøÿÿÿÿ8 Ù¿°–1
 |
-java:S1128"ZRemove this unused import 'com.pragma.powerup.infrastructure.exception.EmailAlreadyTaken'.(ç¯×šúÿÿÿÿ8¹—¸¨•1
+java:S1128"ZRemove this unused import 'com.pragma.powerup.application.dto.response.ResponseClientDto'.(¶ª‘»ıÿÿÿÿ8 Ù¿°–1
+q
+java:S1128"TRemove this unused import 'com.pragma.powerup.application.dto.response.ResponseDto'.(ÃäÈ8 Ù¿°–1
+u
+java:S1128	"XRemove this unused import 'com.pragma.powerup.application.dto.response.UserResponseDto'.(Î¥µ8 Ù¿°–1
+|
+java:S1128"ZRemove this unused import 'com.pragma.powerup.infrastructure.exception.EmailAlreadyTaken'.(ç¯×šúÿÿÿÿ8 Ù¿°–1
+
+java:S1128"]Remove this unused import 'com.pragma.powerup.infrastructure.exception.NoDataFoundException'.(úá§—üÿÿÿÿ8 Ù¿°–1
 U
-java:S1128"3Remove this unused import 'io.jsonwebtoken.Claims'.(“œ¾ úÿÿÿÿ8µ˜­¼’1
+java:S1128"3Remove this unused import 'io.jsonwebtoken.Claims'.(“œ¾ úÿÿÿÿ8 Ù¿°–1
 N
-java:S1128"1Remove this unused import 'io.jsonwebtoken.Jwts'.(íğœ±8µ˜­¼’1
+java:S1128"1Remove this unused import 'io.jsonwebtoken.Jwts'.(íğœ±8 Ù¿°–1
 f
-java:S1128"DRemove this unused import 'io.swagger.v3.oas.annotations.Operation'.(şÏæšşÿÿÿÿ8º—¸¨•1
+java:S1128"DRemove this unused import 'io.swagger.v3.oas.annotations.Operation'.(şÏæšşÿÿÿÿ8 Ù¿°–1
 i
-java:S1128"LRemove this unused import 'io.swagger.v3.oas.annotations.media.ArraySchema'.(‚ñãØ8º—¸¨•1
+java:S1128"LRemove this unused import 'io.swagger.v3.oas.annotations.media.ArraySchema'.(‚ñãØ8 Ù¿°–1
 j
-java:S1128"HRemove this unused import 'io.swagger.v3.oas.annotations.media.Content'.(±øıÊüÿÿÿÿ8º—¸¨•1
+java:S1128"HRemove this unused import 'io.swagger.v3.oas.annotations.media.Content'.(±øıÊüÿÿÿÿ8 Ù¿°–1
 i
-java:S1128"GRemove this unused import 'io.swagger.v3.oas.annotations.media.Schema'.(“è«øüÿÿÿÿ8º—¸¨•1
+java:S1128"GRemove this unused import 'io.swagger.v3.oas.annotations.media.Schema'.(“è«øüÿÿÿÿ8 Ù¿°–1
 r
-java:S1128"PRemove this unused import 'io.swagger.v3.oas.annotations.responses.ApiResponse'.(ÑÁÔ¾ıÿÿÿÿ8º—¸¨•1
+java:S1128"PRemove this unused import 'io.swagger.v3.oas.annotations.responses.ApiResponse'.(ÑÁÔ¾ıÿÿÿÿ8 Ù¿°–1
 n
-java:S1128"QRemove this unused import 'io.swagger.v3.oas.annotations.responses.ApiResponses'.(ıúáØ8»—¸¨•1
+java:S1128"QRemove this unused import 'io.swagger.v3.oas.annotations.responses.ApiResponses'.(ıúáØ8 Ù¿°–1
+b
+java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8 Ù¿°–1
+f
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8 Ù¿°–1
 ƒ
-java:S1128"fRemove this unused import 'org.springframework.security.authorization.AuthorityAuthorizationDecision'.(Äİü¨8µ˜­¼’1
+java:S1128"fRemove this unused import 'org.springframework.security.authorization.AuthorityAuthorizationDecision'.(Äİü¨8 Ù¿°–1
 k
-java:S1128"IRemove this unused import 'org.springframework.validation.BindingResult'.(‹¶¸ùÿÿÿÿ8¦Ù¸¨•1
+java:S1128"IRemove this unused import 'org.springframework.validation.BindingResult'.(‹¶¸ùÿÿÿÿ8 Ù¿°–1
 _
-java:S1128"CRemove this unused import 'javax.annotation.security.RolesAllowed'.(®®€8ØÂ¿’1
+java:S1128"CRemove this unused import 'javax.annotation.security.RolesAllowed'.(®®€8 Ù¿°–1
 U
-java:S1128"3Remove this unused import 'javax.validation.Valid'.(æ¤ñ÷úÿÿÿÿ8»—¸¨•1
+java:S1128"3Remove this unused import 'javax.validation.Valid'.(æ¤ñ÷úÿÿÿÿ8 Ù¿°–1
 M
-java:S1128 "+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¦Ù¸¨•1
+java:S1128 "+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8 Ù¿°–1
 Z
-java:S1128!"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8¦Ù¸¨•1
+java:S1128!"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8 Ù¿°–1

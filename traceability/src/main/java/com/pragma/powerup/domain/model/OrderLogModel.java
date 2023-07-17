@@ -16,5 +16,7 @@ public class OrderLogModel {
     private String state;
     private Long clientId;
     private Long orderId;
+    private Long restaurantId;
+    private Long employeeId;
     private Date date;
 }

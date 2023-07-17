@@ -3,3 +3,11 @@
 java:S1488 "aImmediately return this expression instead of assigning it to the temporary variable "userModel".(Åæ¼À8¯µ†ê1
 †
 java:S3655"dCall "userEntityOptional.isPresent()" or "!userEntityOptional.isEmpty()" before accessing the value.(‰õ…ßøÿÿÿÿ8²¼Õñ1
+€
+java:S1128"^Remove this unused import 'com.pragma.powerup.infrastructure.exception.UserNotFoundException'.(•ûÏ§úÿÿÿÿ8Âı¬–1
+u
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8Âı¬–1
+{
+java:S1128"YRemove this unused import 'org.springframework.security.crypto.password.PasswordEncoder'.(‰¡ßáÿÿÿÿÿ8Âı¬–1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Âı¬–1

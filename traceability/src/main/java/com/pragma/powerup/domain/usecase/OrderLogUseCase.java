@@ -24,7 +24,27 @@ public class OrderLogUseCase implements IOrderLogServicePort {
     }
 
     @Override
+    public List<OrderLogModel> getAllOrderLogs(){
+        return orderLogPersistencePort.getAllOrderLogs();
+    }
+
+    @Override
     public List<OrderLogModel> getAllOrderLogsByClient(Long clientId) {
         return orderLogPersistencePort.getAllOrderLogsByClient(clientId);
+    }
+
+    @Override
+    public List<OrderLogModel> getAllOrderLogsByOrder(Long orderId) {
+        return orderLogPersistencePort.getAllOrderLogsByOrder(orderId);
+    }
+
+    @Override
+    public List<OrderLogModel> getAllOrderLogsByEmployee(Long employeeId) {
+        return orderLogPersistencePort.getAllOrderLogsByEmployee(employeeId);
+    }
+
+    @Override
+    public List<OrderLogModel> getAllOrderLogsByRestaurant(Long restaurantId) {
+        return orderLogPersistencePort.getAllOrderLogsByRestaurant(restaurantId);
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-07-14T16:25:57-0500",
+    date = "2023-07-17T17:54:30-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.5.jar, environment: Java 17.0.7 (Oracle Corporation)"
 )
 @Component
@@ -26,6 +26,8 @@ public class IOrderLogEntityMapperImpl implements IOrderLogEntityMapper {
         orderLogEntity.setId( orderLogModel.getId() );
         orderLogEntity.setClientId( orderLogModel.getClientId() );
         orderLogEntity.setOrderId( orderLogModel.getOrderId() );
+        orderLogEntity.setRestaurantId( orderLogModel.getRestaurantId() );
+        orderLogEntity.setEmployeeId( orderLogModel.getEmployeeId() );
         orderLogEntity.setDate( orderLogModel.getDate() );
         orderLogEntity.setState( orderLogModel.getState() );
 
@@ -44,6 +46,8 @@ public class IOrderLogEntityMapperImpl implements IOrderLogEntityMapper {
         orderLogModel.setState( orderLogEntity.getState() );
         orderLogModel.setClientId( orderLogEntity.getClientId() );
         orderLogModel.setOrderId( orderLogEntity.getOrderId() );
+        orderLogModel.setRestaurantId( orderLogEntity.getRestaurantId() );
+        orderLogModel.setEmployeeId( orderLogEntity.getEmployeeId() );
         orderLogModel.setDate( orderLogEntity.getDate() );
 
         return orderLogModel;

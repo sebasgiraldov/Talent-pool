@@ -31,6 +31,11 @@ public class OrderLogJpaAdapter implements IOrderLogPersistencePort {
     }
 
     @Override
+    public List<OrderLogModel> getAllOrderLogs() {
+        return orderLogEntityMapper.toOrderLogModelList(orderLogRepository.findAll());
+    }
+
+    @Override
     public List<OrderLogModel> getAllOrderLogsByClient(Long clientId) {
         List<OrderLogEntity> orderLogEntityList = orderLogRepository.findByClientId(clientId);
 
@@ -40,4 +45,38 @@ public class OrderLogJpaAdapter implements IOrderLogPersistencePort {
 
         return orderLogEntityMapper.toOrderLogModelList(orderLogEntityList);
     }
+
+    @Override
+    public List<OrderLogModel> getAllOrderLogsByOrder(Long orderId) {
+        List<OrderLogEntity> orderLogEntityList = orderLogRepository.findByOrderId(orderId);
+
+        if(orderLogEntityList.isEmpty()){
+            throw new NoDataFoundException();
+        }
+
+        return orderLogEntityMapper.toOrderLogModelList(orderLogEntityList);
+    }
+
+    @Override
+    public List<OrderLogModel> getAllOrderLogsByRestaurant(Long restaurantId) {
+        List<OrderLogEntity> orderLogEntityList = orderLogRepository.findByrestaurantId(restaurantId);
+
+        if(orderLogEntityList.isEmpty()){
+            throw new NoDataFoundException();
+        }
+
+        return orderLogEntityMapper.toOrderLogModelList(orderLogEntityList);
+    }
+
+    @Override
+    public List<OrderLogModel> getAllOrderLogsByEmployee(Long employeeId) {
+        List<OrderLogEntity> orderLogEntityList = orderLogRepository.findByEmployeeId(employeeId);
+
+        if(orderLogEntityList.isEmpty()){
+            throw new NoDataFoundException();
+        }
+
+        return orderLogEntityMapper.toOrderLogModelList(orderLogEntityList);
+    }
+
 }

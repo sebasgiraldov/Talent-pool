@@ -8,4 +8,10 @@ import java.util.Optional;
 
 public interface IOrderLogRepository extends MongoRepository<OrderLogEntity, String> {
     List<OrderLogEntity> findByClientId(Long clientId);
+    List<OrderLogEntity> findByEmployeeId(Long employeeId);
+    List<OrderLogEntity> findByOrderId(Long orderId);
+    List<OrderLogEntity> findByrestaurantId(Long restaurantId);
+
+
+
 }

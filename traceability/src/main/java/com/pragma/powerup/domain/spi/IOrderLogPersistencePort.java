@@ -9,8 +9,13 @@ public interface IOrderLogPersistencePort {
     OrderLogModel saveOrderLog(OrderLogModel orderLogModel);
 
     OrderLogModel getOrderLog(String orderLogId);
+    List<OrderLogModel> getAllOrderLogs();
 
     List<OrderLogModel> getAllOrderLogsByClient(Long clientId);
 
+    List<OrderLogModel> getAllOrderLogsByOrder(Long orderId);
 
+    List<OrderLogModel> getAllOrderLogsByRestaurant(Long restaurantId);
+
+    List<OrderLogModel> getAllOrderLogsByEmployee(Long employeeId);
 }

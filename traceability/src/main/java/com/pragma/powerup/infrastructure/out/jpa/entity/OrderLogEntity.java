@@ -19,6 +19,8 @@ public class OrderLogEntity {
     private String id;
     private Long clientId;
     private Long orderId;
+    private Long restaurantId;
+    private Long employeeId;
     private Date date;
     private String state;
 }

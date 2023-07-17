@@ -10,6 +10,8 @@ import java.util.Date;
 public class OrderLogResponseDto {
     private Long clientId;
     private Long orderId;
+    private Long restaurantId;
+    private Long employeeId;
     private Date date;
     private String state;
 }

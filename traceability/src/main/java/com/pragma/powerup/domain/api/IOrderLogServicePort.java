@@ -10,6 +10,15 @@ public interface IOrderLogServicePort {
 
     OrderLogModel getOrderLog(String orderLogId);
 
+    List<OrderLogModel> getAllOrderLogs();
+
     List<OrderLogModel> getAllOrderLogsByClient(Long clientId);
+
+    List<OrderLogModel> getAllOrderLogsByOrder(Long orderId);
+
+    List<OrderLogModel> getAllOrderLogsByEmployee(Long employeeId);
+
+    List<OrderLogModel> getAllOrderLogsByRestaurant(Long restaurantId);
+
 
 }

@@ -1,6 +1,7 @@
 package com.pragma.powerup.application.mapper;
 
 import com.pragma.powerup.application.dto.response.AllOrderLogResponseDto;
+import com.pragma.powerup.application.dto.response.OrderDurationResponseDto;
 import com.pragma.powerup.application.dto.response.OrderLogResponseDto;
 import com.pragma.powerup.domain.model.OrderLogModel;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-07-14T16:25:57-0500",
+    date = "2023-07-17T17:54:30-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.5.jar, environment: Java 17.0.7 (Oracle Corporation)"
 )
 @Component
@@ -26,6 +27,8 @@ public class IOrderLogResponseMapperImpl implements IOrderLogResponseMapper {
 
         orderLogResponseDto.setClientId( orderLogModel.getClientId() );
         orderLogResponseDto.setOrderId( orderLogModel.getOrderId() );
+        orderLogResponseDto.setRestaurantId( orderLogModel.getRestaurantId() );
+        orderLogResponseDto.setEmployeeId( orderLogModel.getEmployeeId() );
         orderLogResponseDto.setDate( orderLogModel.getDate() );
         orderLogResponseDto.setState( orderLogModel.getState() );
 
@@ -46,6 +49,25 @@ public class IOrderLogResponseMapperImpl implements IOrderLogResponseMapper {
         return list;
     }
 
+    @Override
+    public OrderDurationResponseDto toDuration(OrderLogModel orderLogModel, Long duration) {
+        if ( orderLogModel == null && duration == null ) {
+            return null;
+        }
+
+        OrderDurationResponseDto orderDurationResponseDto = new OrderDurationResponseDto();
+
+        if ( orderLogModel != null ) {
+            orderDurationResponseDto.setClientId( orderLogModel.getClientId() );
+            orderDurationResponseDto.setOrderId( orderLogModel.getOrderId() );
+            orderDurationResponseDto.setRestaurantId( orderLogModel.getRestaurantId() );
+            orderDurationResponseDto.setEmployeeId( orderLogModel.getEmployeeId() );
+        }
+        orderDurationResponseDto.setDuration( duration );
+
+        return orderDurationResponseDto;
+    }
+
     protected AllOrderLogResponseDto orderLogModelToAllOrderLogResponseDto(OrderLogModel orderLogModel) {
         if ( orderLogModel == null ) {
             return null;
@@ -54,6 +76,7 @@ public class IOrderLogResponseMapperImpl implements IOrderLogResponseMapper {
         AllOrderLogResponseDto allOrderLogResponseDto = new AllOrderLogResponseDto();
 
         allOrderLogResponseDto.setOrderId( orderLogModel.getOrderId() );
+        allOrderLogResponseDto.setRestaurantId( orderLogModel.getRestaurantId() );
         allOrderLogResponseDto.setDate( orderLogModel.getDate() );
         allOrderLogResponseDto.setState( orderLogModel.getState() );
 
